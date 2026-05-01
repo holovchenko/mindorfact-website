@@ -1,0 +1,255 @@
+/* Mindorfact — Warm Modern Design System */
+:root {
+  --color-bg: #fef6f0;
+  --color-fg: #3d2818;
+  --color-accent: #c06c48;
+  --color-accent-hover: #a85a38;
+  --color-muted: #8a6a58;
+  --color-border: #e8d5c8;
+  --color-surface: #fff9f5;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 1px 4px rgba(61, 40, 24, 0.08);
+  --shadow-md: 0 4px 16px rgba(61, 40, 24, 0.10);
+
+  --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  --font-display: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+
+  --max-width: 720px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-fg);
+}
+
+h1 { font-size: clamp(2rem, 6vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 4vw, 2rem); margin-top: 2.5rem; margin-bottom: 0.75rem; }
+h3 { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.5rem; }
+
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--color-accent-hover); }
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+li { margin-bottom: 0.25rem; }
+
+/* Utility */
+.accent { color: var(--color-accent); }
+.muted { color: var(--color-muted); font-size: 0.9rem; }
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--color-accent-hover); color: #fff; }
+
+/* Legal content */
+.legal-content {
+  max-width: var(--max-width);
+}
+.legal-content h2:first-of-type { margin-top: 0; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2.5rem 0;
+}
+
+/* Header */
+.site-header {
+  width: 100%;
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+.site-header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.site-header .wordmark {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-fg);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.site-header .wordmark span { color: var(--color-accent); }
+.site-header nav a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-decoration: none;
+  margin-left: 1.25rem;
+}
+.site-header nav a:hover { color: var(--color-accent); }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+.site-footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.site-footer a {
+  color: var(--color-muted);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+.site-footer a:hover { color: var(--color-accent); }
+.site-footer .footer-links { margin-bottom: 0.5rem; }
+
+/* Email signup */
+.email-signup {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  margin-top: 2.5rem;
+}
+.email-signup p {
+  margin-bottom: 1rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+.email-signup form {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.email-signup input[type="email"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-fg);
+  outline: none;
+}
+.email-signup input[type="email"]:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(192, 108, 72, 0.12);
+}
+
+/* FAQ */
+.faq-list { list-style: none; padding: 0; margin: 0; }
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 1.25rem 0;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-question {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-fg);
+}
+.faq-answer { color: var(--color-muted); margin: 0; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 4rem 0 2rem;
+}
+.hero .tagline {
+  font-size: 1.2rem;
+  color: var(--color-muted);
+  margin-top: 1rem;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero .badge {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .site-header nav { display: none; }
+  .email-signup form { flex-direction: column; }
+  .email-signup input[type="email"] { min-width: 0; }
+}

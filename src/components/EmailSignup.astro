@@ -1,0 +1,19 @@
+---
+// EmailSignup — collects early interest emails.
+// Form posts to /api/subscribe (stub — wire to Formspree or Vercel KV post-launch).
+---
+
+<div class="email-signup">
+  <p>Дізнайтеся першими, коли гра з'явиться в App Store.</p>
+  <form action="/api/subscribe" method="POST">
+    <input
+      type="email"
+      name="email"
+      placeholder="ваш@email.com"
+      required
+      autocomplete="email"
+      aria-label="Email адреса"
+    />
+    <button type="submit" class="btn">Повідомити мене</button>
+  </form>
+</div>

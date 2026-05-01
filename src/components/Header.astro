@@ -1,0 +1,17 @@
+---
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/';
+---
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="wordmark">
+      Mindor<span>fact</span>
+    </a>
+    <nav aria-label="Навігація">
+      <a href="/support" aria-current={pathname === '/support' ? 'page' : undefined}>Підтримка</a>
+      <a href="/privacy" aria-current={pathname === '/privacy' ? 'page' : undefined}>Конфіденційність</a>
+      <a href="/terms" aria-current={pathname === '/terms' ? 'page' : undefined}>Умови</a>
+    </nav>
+  </div>
+</header>

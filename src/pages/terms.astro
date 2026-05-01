@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const entry = await getEntry('legal', 'terms');
+const { Content } = await entry.render();
+---
+
+<BaseLayout
+  title="Умови використання — Mindorfact"
+  description="Умови використання додатку Mindorfact."
+>
+  <article class="legal-content">
+    <Content />
+  </article>
+</BaseLayout>
