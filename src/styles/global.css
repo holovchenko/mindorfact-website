@@ -246,6 +246,65 @@ hr {
   border-radius: 999px;
   margin-bottom: 1.25rem;
 }
+.hero .cta-row {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.hero .hero-note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* App Store badge — Apple-style inline button. CSP blocks external images,
+   so SVG is inline. Black background per Apple's badge guidelines. */
+.appstore-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.7rem 1.1rem 0.7rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid #000;
+  font-family: var(--font-display);
+  line-height: 1;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.appstore-badge:hover {
+  background: #1c1c1e;
+  color: #fff;
+  transform: translateY(-1px);
+}
+.appstore-badge:active { transform: translateY(0); }
+.appstore-badge:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+.appstore-icon {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+.appstore-text {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: left;
+}
+.appstore-line-1 {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+}
+.appstore-line-2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
 
 /* Responsive */
 @media (max-width: 480px) {

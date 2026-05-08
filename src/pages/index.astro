@@ -1,16 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EmailSignup from '../components/EmailSignup.astro';
+
+// Universal App Store URL — Apple auto-localizes by user region.
+const APP_STORE_URL = 'https://apps.apple.com/app/id6765670691';
 ---
 
 <BaseLayout
   title="Mindorfact — Картки на критичне мислення"
-  description="Картки на критичне мислення. Скоро в App Store."
+  description="Mindorfact — карткова гра на критичне мислення. Доступна в App Store."
 >
   <section class="hero">
-    <div class="badge">Скоро в App Store</div>
     <h1>Mindorfact</h1>
-    <p class="tagline">Картки на критичне мислення. Скоро в App Store.</p>
+    <p class="tagline">Карткова гра на критичне мислення. 4 режими, 5 категорій, українською.</p>
+
+    <div class="cta-row">
+      <a class="appstore-badge" href={APP_STORE_URL} target="_blank" rel="noopener" aria-label="Завантажити Mindorfact в App Store">
+        <svg class="appstore-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+        </svg>
+        <span class="appstore-text">
+          <span class="appstore-line-1">Завантажити в</span>
+          <span class="appstore-line-2">App Store</span>
+        </span>
+      </a>
+    </div>
+
+    <p class="muted hero-note">Працює на iPhone і iPad. iOS 17 і новіші.</p>
   </section>
 
   <EmailSignup />
