@@ -27,6 +27,6 @@ export default defineConfig({
         locales: { en: 'en', uk: 'uk-UA', de: 'de', fr: 'fr' },
       },
     }),
-    icon({ include: { lucide: ['*'] } }),
+    icon(),
   ],
 });
