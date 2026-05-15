@@ -21,6 +21,13 @@ export const LOCALE_HTML_LANG: Record<Locale, string> = {
   fr: 'fr',
 };
 
+export const LOCALE_OG_LANG: Record<Locale, string> = {
+  en: 'en_US',
+  uk: 'uk_UA',
+  de: 'de_DE',
+  fr: 'fr_FR',
+};
+
 export function isActiveLocale(value: string): value is ActiveLocale {
   return (ACTIVE_LOCALES as readonly string[]).includes(value);
 }
