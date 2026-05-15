@@ -24,7 +24,7 @@ const computedTitle = title ?? `${t.meta.siteName} — ${t.meta.tagline}`;
 const computedDesc  = description ?? t.meta.description;
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://mindorfact.com';
-const cleanPath = path === '/' ? '' : path;
+const cleanPath = path === '/' ? '/' : `${path}/`;
 const canonical = `${site}/${lang}${cleanPath}`;
 
 const alternates = ACTIVE_LOCALES.map((loc) => ({

@@ -9,7 +9,7 @@ export interface Props {
 
 const { current, path } = Astro.props;
 const t = dict(current);
-const cleanPath = path === '/' ? '' : path;
+const cleanPath = path === '/' ? '/' : `${path}/`;
 ---
 
 <nav aria-label={t.nav.toggleLanguage} class="flex items-center gap-1 rounded-pill border border-brand-stroke bg-brand-surface/60 px-1 py-1">
