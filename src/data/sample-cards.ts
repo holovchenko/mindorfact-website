@@ -22,7 +22,7 @@ export const SAMPLE_CARDS: SampleCard[] = [
     },
     explanation: {
       en: "Fact: gravity acts on every object with mass and pulls it toward Earth's center. Throw a ball up — it always comes back down. Newton confirmed this as a physical law.",
-      uk: 'Це факт: сила гравітації діє на всі тіла з масою і притягує їх до центру Землі. Кинь м'яч угору — він обов'язково впаде. Це фізичний закон, перевірений ще Ньютоном.',
+      uk: "Це факт: сила гравітації діє на всі тіла з масою і притягує їх до центру Землі. Кинь м'яч угору — він обов'язково впаде. Це фізичний закон, перевірений ще Ньютоном.",
     },
   },
   {
