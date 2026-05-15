@@ -1,0 +1,21 @@
+---
+const COLORS = [
+  { name: 'Pink',    css: '--brand-pink',    hex: '#DA1B5C' },
+  { name: 'Indigo',  css: '--brand-indigo',  hex: '#3F2DD6' },
+  { name: 'Cream',   css: '--brand-cream',   hex: '#FFF0F1' },
+  { name: 'Blush',   css: '--brand-blush',   hex: '#FFE0E2' },
+  { name: 'Ink',     css: '--brand-ink',     hex: '#1F0E2E' },
+  { name: 'Mute',    css: '--brand-mute',    hex: '#6B496F' },
+];
+---
+<ul class="grid gap-3 sm:grid-cols-3">
+  {COLORS.map((c) => (
+    <li class="flex items-center gap-3 rounded-card border border-brand-stroke/60 bg-brand-surface p-4">
+      <span class="block h-10 w-10 rounded-pill border border-brand-stroke" style={`background-color: ${c.hex};`} aria-hidden="true"></span>
+      <span class="flex flex-col">
+        <span class="font-semibold text-brand-ink">{c.name}</span>
+        <code class="text-xs text-brand-mute">{c.hex}</code>
+      </span>
+    </li>
+  ))}
+</ul>

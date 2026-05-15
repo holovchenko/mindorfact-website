@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PressDownloads from '../../components/PressDownloads.astro';
+import BrandColorsTable from '../../components/BrandColorsTable.astro';
+import AppCopyVariants from '../../components/AppCopyVariants.astro';
+import { ACTIVE_LOCALES, type ActiveLocale } from '../../i18n/locales';
+
+export function getStaticPaths() {
+  return ACTIVE_LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: ActiveLocale };
+---
+
+<BaseLayout lang={lang} path="/press" title="Mindorfact — Press kit">
+  <header class="prose-page">
+    <h1 class="font-display text-display-lg text-brand-ink sm:text-display-xl">Press kit</h1>
+    <p class="mt-4 max-w-prose text-body text-brand-mute">
+      Logos, screenshots, copy variants, and brand colors for Mindorfact. Free to use in articles and reviews. Press contact: <a class="text-brand-indigo" href="mailto:press@mindorfact.com">press@mindorfact.com</a>.
+    </p>
+  </header>
+
+  <section class="mt-16">
+    <h2 class="font-display text-h2 text-brand-ink">Downloads</h2>
+    <div class="mt-6"><PressDownloads /></div>
+  </section>
+
+  <section class="mt-16">
+    <h2 class="font-display text-h2 text-brand-ink">Brand colors</h2>
+    <div class="mt-6"><BrandColorsTable /></div>
+  </section>
+
+  <section class="mt-16">
+    <h2 class="font-display text-h2 text-brand-ink">App description</h2>
+    <div class="mt-6"><AppCopyVariants /></div>
+  </section>
+
+  <section class="prose-page mt-16">
+    <h2 class="font-display text-h2 text-brand-ink">Quick facts</h2>
+    <ul class="mt-3 list-disc pl-6 text-body text-brand-mute">
+      <li>Solo iOS app, available on iPhone and iPad (iOS 17+).</li>
+      <li>2 850 cards, 10 topic packs, 4 languages.</li>
+      <li>Fully offline. No accounts. iCloud sync between user's own devices.</li>
+      <li>Made in Ukraine 🇺🇦, by Kyrylo Holovchenko.</li>
+      <li>App Store listing: <a class="text-brand-indigo" href="https://apps.apple.com/app/id6765670691">apps.apple.com/app/id6765670691</a></li>
+    </ul>
+  </section>
+</BaseLayout>

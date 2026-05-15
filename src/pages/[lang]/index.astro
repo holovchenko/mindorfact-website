@@ -6,6 +6,7 @@ import CardGallery from '../../components/CardGallery.astro';
 import MetricsBlock from '../../components/MetricsBlock.astro';
 import FAQList from '../../components/FAQList.astro';
 import FinalCTA from '../../components/FinalCTA.astro';
+import FAQJsonLd from '../../components/FAQJsonLd.astro';
 import { ACTIVE_LOCALES, type ActiveLocale } from '../../i18n/locales';
 
 export function getStaticPaths() {
@@ -16,6 +17,7 @@ const { lang } = Astro.params as { lang: ActiveLocale };
 ---
 
 <BaseLayout lang={lang} path="/">
+  <FAQJsonLd lang={lang} />
   <HeroSplit lang={lang} />
   <BentoFeatures lang={lang} />
   <CardGallery lang={lang} />
