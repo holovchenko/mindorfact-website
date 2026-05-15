@@ -100,7 +100,7 @@ test('/en/press renders downloads, colors, copy, quick facts', async ({ page }) 
   await expect(page.locator('h1')).toHaveText('Press kit');
   await expect(page.locator('a[download]')).toHaveCount(2);
   await expect(page.locator('span[aria-hidden="true"][style*="background-color"]')).toHaveCount(6);
-  const facts = page.locator('article ul > li');
+  const facts = page.locator('section:has(> h2:has-text("Quick facts")) ul > li');
   expect(await facts.count()).toBeGreaterThanOrEqual(5);
 });
 
