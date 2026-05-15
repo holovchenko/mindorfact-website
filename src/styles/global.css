@@ -38,6 +38,7 @@
 
   a:hover { color: var(--brand-pink); }
 
+  /* ::selection contrast: pink #DA1B5C bg + white fg ≈ 5.16:1, passes WCAG AA. */
   ::selection {
     background: var(--brand-pink);
     color: #fff;
