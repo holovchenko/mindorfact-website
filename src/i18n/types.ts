@@ -59,6 +59,7 @@ export type Dictionary = {
   hero: {
     factLabel: string;
     opinionLabel: string;
+    tapToFlip: string;
   };
   bento: {
     sectionKicker: string;

@@ -58,7 +58,7 @@ export const en: Dictionary = {
     space: 'Space',
     moreFanFacts: '+5 fan-fact packs inside',
   },
-  hero: { factLabel: 'Fact', opinionLabel: 'Opinion' },
+  hero: { factLabel: 'Fact', opinionLabel: 'Opinion', tapToFlip: 'Tap to flip' },
   bento: {
     sectionKicker: 'What you get',
     soloDaily: {

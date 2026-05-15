@@ -27,7 +27,7 @@ const checkboxId = `sc-${card.id}`;
       <div class="absolute inset-0 rounded-card border border-brand-stroke bg-brand-surface p-5 shadow-card flex flex-col gap-3" style="backface-visibility: hidden;">
         <span class="text-2xl" aria-hidden="true">{card.emoji}</span>
         <p class="text-body text-brand-ink leading-snug">{card.statement[lang]}</p>
-        <span class="mt-auto text-xs uppercase tracking-wider text-brand-mute">{lang === 'uk' ? 'Натисни, щоб розкрити' : 'Tap to flip'}</span>
+        <span class="mt-auto text-xs uppercase tracking-wider text-brand-mute">{t.hero.tapToFlip}</span>
       </div>
       <!-- back -->
       <div class="absolute inset-0 rounded-card border border-brand-stroke bg-brand-blush p-5 shadow-card flex flex-col gap-3" style="backface-visibility: hidden; transform: rotateY(180deg);">

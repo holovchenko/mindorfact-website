@@ -58,7 +58,7 @@ export const uk: Dictionary = {
     space: 'Космос',
     moreFanFacts: '+5 пакетів фан-фактів усередині',
   },
-  hero: { factLabel: 'Факт', opinionLabel: 'Думка' },
+  hero: { factLabel: 'Факт', opinionLabel: 'Думка', tapToFlip: 'Натисни, щоб розкрити' },
   bento: {
     sectionKicker: 'Що всередині',
     soloDaily: {
