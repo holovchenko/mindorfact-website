@@ -1,13 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-const LOCALES = ['en', 'uk'] as const;
+const LOCALES = ['en', 'uk', 'de', 'fr'] as const;
 const PAGES = ['', '/support', '/privacy', '/terms'] as const;
+
+const HTML_LANG: Record<string, string> = { en: 'en', uk: 'uk-UA', de: 'de', fr: 'fr' };
 
 for (const locale of LOCALES) {
   for (const page of PAGES) {
     test(`/${locale}${page} renders with hreflang alternates`, async ({ page: pwPage }) => {
       await pwPage.goto(`/${locale}${page}`);
-      await expect(pwPage.locator('html')).toHaveAttribute('lang', locale === 'uk' ? 'uk-UA' : 'en');
+      await expect(pwPage.locator('html')).toHaveAttribute('lang', HTML_LANG[locale]);
       const hreflangs = await pwPage.locator('link[rel="alternate"][hreflang]').count();
       expect(hreflangs).toBeGreaterThanOrEqual(LOCALES.length + 1); // active locales + x-default
       const canonical = await pwPage.locator('link[rel="canonical"]').getAttribute('href');
@@ -65,6 +67,16 @@ test('Bento section renders 6 tiles', async ({ page }) => {
 test('UK home renders Ukrainian hero copy', async ({ page }) => {
   await page.goto('/uk');
   await expect(page.locator('h1')).toContainText('Карткова гра');
+});
+
+test('DE home renders German hero copy', async ({ page }) => {
+  await page.goto('/de');
+  await expect(page.locator('h1')).toContainText('Kartenspiel');
+});
+
+test('FR home renders French hero copy', async ({ page }) => {
+  await page.goto('/fr');
+  await expect(page.locator('h1')).toContainText('jeu de cartes');
 });
 
 test('Card gallery renders 6 sample cards', async ({ page }) => {
