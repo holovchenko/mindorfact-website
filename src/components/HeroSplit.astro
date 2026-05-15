@@ -9,6 +9,14 @@ import { HERO_FLOAT_CARDS } from '../data/sample-cards';
 export interface Props { lang: ActiveLocale; }
 const { lang } = Astro.props;
 const t = dict(lang);
+
+const HERO_SCREENSHOT: Record<string, string> = {
+  uk: '/screenshots/solo-quiz-uk.png',
+  en: '/screenshots/solo-quiz-en.png',
+  de: '/screenshots/solo-quiz-de.png',
+  fr: '/screenshots/solo-quiz-fr.png',
+};
+const heroSrc = HERO_SCREENSHOT[lang] ?? HERO_SCREENSHOT.en;
 ---
 
 <section class="grid grid-cols-1 gap-12 py-6 sm:py-10 lg:grid-cols-12 lg:gap-8">
@@ -29,7 +37,7 @@ const t = dict(lang);
   </div>
 
   <div class="lg:col-span-6 relative grid place-items-center min-h-[28rem]">
-    <PhoneFrame src="/screenshots/solo-quiz-uk.png" alt="Mindorfact" />
+    <PhoneFrame src={heroSrc} alt="Mindorfact" />
     <div class="absolute -top-2 -left-2 sm:left-0 sm:-translate-x-1/2 hidden sm:block">
       <SampleCard card={HERO_FLOAT_CARDS[0]} lang={lang} tilt={-6} width={14} class="opacity-95" instanceKey="hero-0" />
     </div>

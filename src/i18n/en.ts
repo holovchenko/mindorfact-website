@@ -135,7 +135,7 @@ export const en: Dictionary = {
       logoLabel: 'Logo (PNG)',
       logoSublabel: '1024×1024 square brand mark',
       screenshotsLabel: 'Screenshots (ZIP)',
-      screenshotsSublabel: 'iPhone 17 Pro Max screenshots, Ukrainian UI',
+      screenshotsSublabel: 'iPhone 17 Pro Max screenshots in 4 languages (uk, en, de, fr)',
       downloadCta: 'Download →',
     },
   },
