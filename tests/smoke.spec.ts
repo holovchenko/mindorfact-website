@@ -94,3 +94,30 @@ test('UK home renders Ukrainian FAQ question', async ({ page }) => {
   const summaries = page.locator('section:has(> h2:has-text("Часті запитання")) details summary span').first();
   await expect(summaries).toContainText(/Mindorfact|вік|віку/i);
 });
+
+test('/en/press renders downloads, colors, copy, quick facts', async ({ page }) => {
+  await page.goto('/en/press');
+  await expect(page.locator('h1')).toHaveText('Press kit');
+  await expect(page.locator('a[download]')).toHaveCount(2);
+  await expect(page.locator('span[aria-hidden="true"][style*="background-color"]')).toHaveCount(6);
+  const facts = page.locator('article ul > li');
+  expect(await facts.count()).toBeGreaterThanOrEqual(5);
+});
+
+test('/uk/press also renders (English-universal content)', async ({ page }) => {
+  await page.goto('/uk/press');
+  await expect(page.locator('h1')).toHaveText('Press kit');
+});
+
+test('Home emits FAQPage JSON-LD', async ({ page }) => {
+  await page.goto('/en');
+  const scripts = await page.locator('script[type="application/ld+json"]').allInnerTexts();
+  const hasFaq = scripts.some((s) => s.includes('"@type":"FAQPage"'));
+  expect(hasFaq).toBe(true);
+});
+
+test('Header has /press link', async ({ page }) => {
+  await page.goto('/en');
+  const link = page.locator('header a[href="/en/press"]');
+  await expect(link).toBeVisible();
+});
