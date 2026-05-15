@@ -1,5 +1,5 @@
 export const PRESS_COPY = {
-  name: "Mindorfact: Fact or Opinion",
+  name: "Mindorfact",
   subtitle: "Critical thinking card game",
   short: "Four ways to play, ten topics, endless conversations — solo, with friends, or as a couple. Now in English, German and French. Tell us what you think.",
   medium: `Mindorfact is a card game about how we think.
