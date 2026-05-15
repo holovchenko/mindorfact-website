@@ -12,6 +12,16 @@
   --danger:        #D8334D;
   --shadow-card:   0 1px 2px rgba(31, 14, 46, .04), 0 8px 24px rgba(218, 27, 92, .08);
   --shadow-lifted: 0 2px 6px rgba(31, 14, 46, .06), 0 24px 48px rgba(218, 27, 92, .12);
+
+  /* Semantic aliases — prefer these for new code; brand- prefixed vars remain for the Tailwind theme. */
+  --color-bg:                var(--brand-cream);
+  --color-bg-elevated:       var(--brand-blush);
+  --color-text-primary:      var(--brand-ink);
+  --color-text-secondary:    var(--brand-mute);
+  --color-surface:           var(--brand-surface);
+  --color-border:            var(--brand-stroke);
+  --color-accent-primary:    var(--brand-pink);
+  --color-accent-secondary:  var(--brand-indigo);
 }
 
 [data-theme="dark"] {
