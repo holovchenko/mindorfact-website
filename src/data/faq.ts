@@ -13,13 +13,13 @@ export const FAQ: FAQItem[] = [
       en: 'What age is Mindorfact for?',
       uk: 'Для якого віку Mindorfact?',
       de: 'Für welches Alter ist Mindorfact?',
-      fr: 'Mindorfact, c'est pour quel âge ?',
+      fr: "Mindorfact, c'est pour quel âge ?",
     },
     answer: {
       en: 'Designed for adults but family-friendly. Topics like science, nature, and space work well for older kids and teens. Strict G content rating.',
       uk: 'Зроблено для дорослих, але підходить і для родинної гри. Теми про науку, природу й космос добре йдуть зі старшими дітьми та підлітками. Сторого G-рейтинг.',
       de: 'Für Erwachsene konzipiert, aber familien­freundlich. Themen wie Wissenschaft, Natur und Weltall funktionieren gut mit älteren Kindern und Jugendlichen. Strenge G-Bewertung.',
-      fr: 'Conçu pour les adultes, mais convient en famille. Des thèmes comme la science, la nature et l'espace marchent bien avec les enfants plus grands et les ados. Classification G stricte.',
+      fr: "Conçu pour les adultes, mais convient en famille. Des thèmes comme la science, la nature et l'espace marchent bien avec les enfants plus grands et les ados. Classification G stricte.",
     },
   },
   {
@@ -49,7 +49,7 @@ export const FAQ: FAQItem[] = [
       en: 'You start with several hundred free cards across all play modes. Individual topic packs unlock extra cards inside that topic. No subscription. Buy only the packs that interest you.',
       uk: 'На старті — кілька сотень безкоштовних карток у всіх режимах. Окремі тематичні пакети розблоковують додаткові картки в темі. Без підписки. Купуй лише те, що цікаво.',
       de: 'Du startest mit mehreren Hundert Gratiskarten in allen Modi. Einzelne Themen­pakete schalten zusätzliche Karten innerhalb des Themas frei. Kein Abo. Kauf nur die Pakete, die dich interessieren.',
-      fr: 'Tu commences avec plusieurs centaines de cartes gratuites dans tous les modes. Les packs de thèmes débloquent des cartes supplémentaires dans ce thème. Pas d'abonnement. Achète uniquement les packs qui t'intéressent.',
+      fr: "Tu commences avec plusieurs centaines de cartes gratuites dans tous les modes. Les packs de thèmes débloquent des cartes supplémentaires dans ce thème. Pas d'abonnement. Achète uniquement les packs qui t'intéressent.",
     },
   },
   {
@@ -58,7 +58,7 @@ export const FAQ: FAQItem[] = [
       en: 'Does it work on iPad?',
       uk: 'Чи працює на iPad?',
       de: 'Funktioniert die App auf dem iPad?',
-      fr: 'L'app fonctionne-t-elle sur iPad ?',
+      fr: "L'app fonctionne-t-elle sur iPad ?",
     },
     answer: {
       en: 'Yes. iPhone and iPad share the same app and progress.',
@@ -73,7 +73,7 @@ export const FAQ: FAQItem[] = [
       en: 'What is the Daily Challenge?',
       uk: 'Що таке щоденний виклик?',
       de: 'Was ist die Tägliche Heraus­forderung?',
-      fr: 'Qu'est-ce que le Défi quotidien ?',
+      fr: "Qu'est-ce que le Défi quotidien ?",
     },
     answer: {
       en: 'One curated card per day, ad-free, with a streak counter. Misses reset the streak. Daily is the same card for everyone in your region.',
@@ -94,7 +94,7 @@ export const FAQ: FAQItem[] = [
       en: 'Email support@mindorfact.com with subject "Topic idea" and a short description.',
       uk: "Напишіть на support@mindorfact.com із темою «Ідея топіка» та коротким описом.",
       de: 'Schreib eine E-Mail an support@mindorfact.com mit dem Betreff „Themen­vorschlag" und einer kurzen Beschreibung.',
-      fr: 'Envoie un e-mail à support@mindorfact.com avec le sujet « Idée de thème » et une courte description.',
+      fr: "Envoie un e-mail à support@mindorfact.com avec le sujet « Idée de thème » et une courte description.",
     },
   },
 ];
