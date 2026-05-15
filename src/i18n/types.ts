@@ -10,6 +10,7 @@ export type Dictionary = {
     terms: string;
     press: string;
     download: string;
+    downloadPrefix: string;
     toggleLanguage: string;
     toggleTheme: string;
   };

@@ -12,6 +12,7 @@ export const fr: Dictionary = {
     terms: 'Conditions',
     press: 'Presse',
     download: 'Télécharger sur l’App Store',
+    downloadPrefix: 'Télécharger sur l’',
     toggleLanguage: 'Changer de langue',
     toggleTheme: 'Basculer le mode sombre',
   },
