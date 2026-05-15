@@ -37,7 +37,7 @@ const heroSrc = HERO_SCREENSHOT[lang] ?? HERO_SCREENSHOT.en;
   </div>
 
   <div class="lg:col-span-6 relative grid place-items-center min-h-[28rem]">
-    <PhoneFrame src={heroSrc} alt="Mindorfact" />
+    <PhoneFrame src={heroSrc} alt="Mindorfact" priority />
     <div class="absolute -top-2 -left-2 sm:left-0 sm:-translate-x-1/2 hidden sm:block">
       <SampleCard card={HERO_FLOAT_CARDS[0]} lang={lang} tilt={-6} width={14} class="opacity-95" instanceKey="hero-0" />
     </div>

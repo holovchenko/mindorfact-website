@@ -4,15 +4,28 @@ export interface Props {
   alt: string;
   width?: number;
   class?: string;
+  priority?: boolean;
 }
-const { src, alt, width = 19, class: extra = '' } = Astro.props;
+const { src, alt, width = 19, class: extra = '', priority = false } = Astro.props;
+const webpSrc = src.replace(/\.png$/i, '.webp');
+const hasWebp = webpSrc !== src;
 ---
 <div class={`phone-frame relative isolate ${extra}`} style={`width:${width}rem`}>
   <div class="aspect-[9/19.5] rounded-[2.6rem] bg-brand-ink p-[0.45rem] shadow-lifted">
     <div class="relative h-full w-full overflow-hidden rounded-[2.2rem] bg-brand-cream">
       <!-- dynamic island -->
       <div class="absolute top-2 left-1/2 -translate-x-1/2 h-5 w-20 rounded-pill bg-brand-ink z-10"></div>
-      <img src={src} alt={alt} loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" />
+      <picture class="absolute inset-0 h-full w-full">
+        {hasWebp && <source type="image/webp" srcset={webpSrc} />}
+        <img
+          src={src}
+          alt={alt}
+          loading={priority ? 'eager' : 'lazy'}
+          fetchpriority={priority ? 'high' : 'auto'}
+          decoding="async"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
     </div>
   </div>
 </div>
