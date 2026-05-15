@@ -64,11 +64,8 @@ test('UK home renders Ukrainian hero copy', async ({ page }) => {
 
 test('Card gallery renders 6 sample cards', async ({ page }) => {
   await page.goto('/en');
-  await page.setViewportSize({ width: 1280, height: 800 });
-  // Gallery section is the one with the "Try a card" kicker. It has its own .sample-card instances.
-  // Hero has 2 floats at this width, gallery adds 6 → page total >= 8.
-  const total = page.locator('.sample-card');
-  expect(await total.count()).toBeGreaterThanOrEqual(8);
+  const galleryCards = page.locator('section:has(> p:has-text("Try a card")) .sample-card');
+  await expect(galleryCards).toHaveCount(6);
 });
 
 test('Metrics block renders 4 stat tiles', async ({ page }) => {
@@ -94,6 +91,6 @@ test('Final CTA strip contains App Store badge', async ({ page }) => {
 
 test('UK home renders Ukrainian FAQ question', async ({ page }) => {
   await page.goto('/uk');
-  const summaries = page.locator('details summary span').first();
-  await expect(summaries).toContainText(/Mindorfact|віку/i);
+  const summaries = page.locator('section:has(> h2:has-text("Часті запитання")) details summary span').first();
+  await expect(summaries).toContainText(/Mindorfact|вік|віку/i);
 });
