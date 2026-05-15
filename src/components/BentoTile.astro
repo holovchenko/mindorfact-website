@@ -1,0 +1,16 @@
+---
+export interface Props {
+  colSpan?: number;
+  rowSpan?: number;
+  accent?: 'pink' | 'indigo' | 'cream';
+  class?: string;
+}
+const { colSpan = 6, rowSpan = 1, accent = 'cream', class: extra = '' } = Astro.props;
+const bg = accent === 'pink' ? 'bg-brand-pink/10' : accent === 'indigo' ? 'bg-brand-indigo/10' : 'bg-brand-blush/60';
+---
+<article
+  class={`group rounded-card border border-brand-stroke/60 ${bg} p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lifted ${extra}`}
+  style={`grid-column: span ${colSpan} / span ${colSpan}; grid-row: span ${rowSpan} / span ${rowSpan};`}
+>
+  <slot />
+</article>
