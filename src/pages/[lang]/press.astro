@@ -4,45 +4,47 @@ import PressDownloads from '../../components/PressDownloads.astro';
 import BrandColorsTable from '../../components/BrandColorsTable.astro';
 import AppCopyVariants from '../../components/AppCopyVariants.astro';
 import { ACTIVE_LOCALES, type ActiveLocale } from '../../i18n/locales';
+import { dict } from '../../i18n/t';
 
 export function getStaticPaths() {
   return ACTIVE_LOCALES.map((lang) => ({ params: { lang } }));
 }
 
 const { lang } = Astro.params as { lang: ActiveLocale };
+const t = dict(lang);
 ---
 
-<BaseLayout lang={lang} path="/press" title="Mindorfact — Press kit">
+<BaseLayout lang={lang} path="/press" title={`${t.meta.siteName} — ${t.press.title}`}>
   <header class="prose-page">
-    <h1 class="font-display text-display-lg text-brand-ink sm:text-display-xl">Press kit</h1>
+    <h1 class="font-display text-display-lg text-brand-ink sm:text-display-xl">{t.press.title}</h1>
     <p class="mt-4 max-w-prose text-body text-brand-mute">
-      Logos, screenshots, copy variants, and brand colors for Mindorfact. Free to use in articles and reviews. Press contact: <a class="text-brand-indigo" href="mailto:press@mindorfact.com">press@mindorfact.com</a>.
+      {t.press.intro} {t.press.contactPrefix} <a class="text-brand-indigo" href="mailto:press@mindorfact.com">press@mindorfact.com</a>.
     </p>
   </header>
 
   <section class="mt-16">
-    <h2 class="font-display text-h2 text-brand-ink">Downloads</h2>
-    <div class="mt-6"><PressDownloads /></div>
+    <h2 class="font-display text-h2 text-brand-ink">{t.press.downloadsHeading}</h2>
+    <div class="mt-6"><PressDownloads lang={lang} /></div>
   </section>
 
   <section class="mt-16">
-    <h2 class="font-display text-h2 text-brand-ink">Brand colors</h2>
+    <h2 class="font-display text-h2 text-brand-ink">{t.press.colorsHeading}</h2>
     <div class="mt-6"><BrandColorsTable /></div>
   </section>
 
   <section class="mt-16">
-    <h2 class="font-display text-h2 text-brand-ink">App description</h2>
-    <div class="mt-6"><AppCopyVariants /></div>
+    <h2 class="font-display text-h2 text-brand-ink">{t.press.descriptionHeading}</h2>
+    <div class="mt-6"><AppCopyVariants lang={lang} /></div>
   </section>
 
   <section class="prose-page mt-16">
-    <h2 class="font-display text-h2 text-brand-ink">Quick facts</h2>
+    <h2 class="font-display text-h2 text-brand-ink">{t.press.quickFactsHeading}</h2>
     <ul class="mt-3 list-disc pl-6 text-body text-brand-mute">
-      <li>Solo iOS app, available on iPhone and iPad (iOS 17+).</li>
-      <li>2 850 cards, 10 topic packs, 4 languages.</li>
-      <li>Fully offline. No accounts. iCloud sync between user's own devices.</li>
-      <li>Made in Ukraine 🇺🇦, by Kyrylo Holovchenko.</li>
-      <li>App Store listing: <a class="text-brand-indigo" href="https://apps.apple.com/app/id6765670691">apps.apple.com/app/id6765670691</a></li>
+      <li>{t.press.quickFacts.device}</li>
+      <li>{t.press.quickFacts.content}</li>
+      <li>{t.press.quickFacts.offline}</li>
+      <li>{t.press.quickFacts.madeIn}</li>
+      <li>{t.press.quickFacts.appStoreLine} <a class="text-brand-indigo" href="https://apps.apple.com/app/id6765670691">apps.apple.com/app/id6765670691</a></li>
     </ul>
   </section>
 </BaseLayout>
