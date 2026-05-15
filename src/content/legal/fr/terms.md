@@ -7,7 +7,7 @@ locale: fr
 
 # Conditions d'utilisation
 
-**Dernière mise à jour : 2025-04-30**
+**Dernière mise à jour : 2025-04-30**
 
 En installant ou en utilisant Mindorfact, tu acceptes ces conditions.
 
@@ -33,4 +33,4 @@ Nous pouvons mettre à jour ces conditions. L'utilisation continue après modifi
 
 ## Contact
 
-Questions : support@mindorfact.com
+Questions : support@mindorfact.com

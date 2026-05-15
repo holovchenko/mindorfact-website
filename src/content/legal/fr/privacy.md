@@ -7,7 +7,7 @@ locale: fr
 
 # Politique de confidentialité
 
-**Dernière mise à jour : 2025-04-30**
+**Dernière mise à jour : 2025-04-30**
 
 Mindorfact (« nous », « notre », « l'app ») est exploité par Kyrylo Holovchenko. L'app fonctionne en mode hors ligne et ne collecte aucune donnée personnelle sur nos serveurs. Cette politique explique les rares données que l'app manipule.
 
@@ -39,4 +39,4 @@ Pour l'analyse, nous pouvons utiliser Vercel Web Analytics sur ce site (pas de c
 
 ## Contact
 
-Questions : support@mindorfact.com
+Questions : support@mindorfact.com

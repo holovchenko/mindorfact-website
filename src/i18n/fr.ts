@@ -49,7 +49,7 @@ export const fr: Dictionary = {
   legal: {
     privacyTitle: 'Politique de confidentialité',
     termsTitle: 'Conditions d’utilisation',
-    lastUpdatedPrefix: 'Dernière mise à jour :',
+    lastUpdatedPrefix: 'Dernière mise à jour :',
   },
   topics: {
     general: 'Général',
@@ -114,7 +114,7 @@ export const fr: Dictionary = {
   press: {
     title: 'Kit presse',
     intro: 'Logos, captures d’écran, variantes de texte et couleurs de marque pour Mindorfact. Libres d’usage dans articles et critiques.',
-    contactPrefix: 'Contact presse :',
+    contactPrefix: 'Contact presse :',
     downloadsHeading: 'Téléchargements',
     colorsHeading: 'Couleurs de marque',
     descriptionHeading: 'Description de l’app',
@@ -124,7 +124,7 @@ export const fr: Dictionary = {
       content: '2 850 cartes, 10 packs de thèmes, 4 langues.',
       offline: 'Entièrement hors ligne. Pas de compte. Synchronisation iCloud entre tes propres appareils.',
       madeIn: 'Fabriqué en Ukraine 🇺🇦, par Kyrylo Holovchenko.',
-      appStoreLine: 'Page App Store :',
+      appStoreLine: 'Page App Store :',
     },
     appCopySections: {
       nameSubtitle: 'Nom et sous-titre',
