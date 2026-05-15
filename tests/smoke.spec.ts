@@ -61,3 +61,36 @@ test('UK home renders Ukrainian hero copy', async ({ page }) => {
   await page.goto('/uk');
   await expect(page.locator('h1')).toContainText('Карткова гра');
 });
+
+test('Card gallery renders 6 sample cards', async ({ page }) => {
+  await page.goto('/en');
+  const galleryCards = page.locator('section:has(> p:has-text("Try a card")) .sample-card');
+  await expect(galleryCards).toHaveCount(6);
+});
+
+test('Metrics block renders 4 stat tiles', async ({ page }) => {
+  await page.goto('/en');
+  const stats = page.locator('section:has(> p:has-text("By the numbers")) > div > div');
+  await expect(stats).toHaveCount(4);
+});
+
+test('FAQ has 6 question items via native details', async ({ page }) => {
+  await page.goto('/en');
+  const items = page.locator('section:has(> h2:has-text("Frequently asked questions")) details');
+  await expect(items).toHaveCount(6);
+});
+
+test('Final CTA strip contains App Store badge', async ({ page }) => {
+  await page.goto('/en');
+  await page.setViewportSize({ width: 1280, height: 800 });
+  // FinalCTA is the gradient section (from-brand-pink to-brand-indigo); badge link may be
+  // visually hidden on mobile so we test at desktop width where it renders inline.
+  const finalCta = page.locator('section.bg-gradient-to-br');
+  await expect(finalCta.locator('a[href*="apps.apple.com"]')).toBeVisible();
+});
+
+test('UK home renders Ukrainian FAQ question', async ({ page }) => {
+  await page.goto('/uk');
+  const summaries = page.locator('section:has(> h2:has-text("Часті запитання")) details summary span').first();
+  await expect(summaries).toContainText(/Mindorfact|вік|віку/i);
+});

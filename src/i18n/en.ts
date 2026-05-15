@@ -87,4 +87,27 @@ export const en: Dictionary = {
       body: 'Start with hundreds of free cards. Buy individual packs only if you want more.',
     },
   },
+  cardGallery: {
+    heading: 'Try a card',
+    sub: 'Six real cards from the app. Tap to flip and see the answer.',
+    cta: '2,844 more cards in the App Store →',
+  },
+  metrics: {
+    heading: 'By the numbers',
+    cards: 'cards',
+    topics: 'topic packs',
+    languages: 'languages',
+    offline: 'offline',
+    cardsValue: '2,850',
+    topicsValue: '10',
+    languagesValue: '4',
+    offlineValue: '100%',
+    madeIn: 'Made in Ukraine 🇺🇦, for everyone.',
+  },
+  faq: { heading: 'Frequently asked questions' },
+  finalCta: {
+    heading: 'Try Mindorfact today',
+    sub: 'iPhone, iPad. iOS 17 and later. Free to start.',
+    noIosLine: 'No iOS? Leave your email and we will let you know when other platforms ship.',
+  },
 };

@@ -11,12 +11,14 @@ export interface Props {
   /** Width in rem. */
   width?: number;
   class?: string;
+  /** Disambiguates ids when the same card is rendered in multiple sections (e.g. hero floats + gallery). */
+  instanceKey?: string;
 }
 
-const { card, lang, tilt = 0, width = 18, class: extra = '' } = Astro.props;
+const { card, lang, tilt = 0, width = 18, class: extra = '', instanceKey = 'default' } = Astro.props;
 const t = dict(lang);
 const answerLabel = card.correctAnswer === 'A' ? t.hero.factLabel : t.hero.opinionLabel;
-const checkboxId = `sc-${card.id}`;
+const checkboxId = `sc-${instanceKey}-${card.id}`;
 ---
 
 <div class={`sample-card ${extra}`} style={`--tilt:${tilt}deg; --w:${width}rem;`}>

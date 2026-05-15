@@ -1,0 +1,29 @@
+---
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+const t = dict(lang);
+
+const stats = [
+  { value: t.metrics.cardsValue,     label: t.metrics.cards,     bg: 'bg-brand-pink/10',   text: 'text-brand-pink' },
+  { value: t.metrics.topicsValue,    label: t.metrics.topics,    bg: 'bg-brand-indigo/10', text: 'text-brand-indigo' },
+  { value: t.metrics.languagesValue, label: t.metrics.languages, bg: 'bg-brand-pink/10',   text: 'text-brand-pink' },
+  { value: t.metrics.offlineValue,   label: t.metrics.offline,   bg: 'bg-brand-indigo/10', text: 'text-brand-indigo' },
+];
+---
+<section class="mt-24">
+  <p class="text-xs uppercase tracking-widest text-brand-indigo">{t.metrics.heading}</p>
+
+  <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+    {stats.map((s) => (
+      <div class={`rounded-card border border-brand-stroke/60 p-6 text-center ${s.bg}`}>
+        <p class={`font-display text-display-lg ${s.text}`}>{s.value}</p>
+        <p class="mt-1 text-sm text-brand-mute">{s.label}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="mt-6 text-center text-sm text-brand-mute">{t.metrics.madeIn}</p>
+</section>

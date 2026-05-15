@@ -2,7 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSplit from '../../components/HeroSplit.astro';
 import BentoFeatures from '../../components/BentoFeatures.astro';
-import EmailSignup from '../../components/EmailSignup.astro';
+import CardGallery from '../../components/CardGallery.astro';
+import MetricsBlock from '../../components/MetricsBlock.astro';
+import FAQList from '../../components/FAQList.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
 import { ACTIVE_LOCALES, type ActiveLocale } from '../../i18n/locales';
 
 export function getStaticPaths() {
@@ -15,7 +18,8 @@ const { lang } = Astro.params as { lang: ActiveLocale };
 <BaseLayout lang={lang} path="/">
   <HeroSplit lang={lang} />
   <BentoFeatures lang={lang} />
-  <section class="mt-24">
-    <EmailSignup lang={lang} />
-  </section>
+  <CardGallery lang={lang} />
+  <MetricsBlock lang={lang} />
+  <FAQList lang={lang} />
+  <FinalCTA lang={lang} />
 </BaseLayout>

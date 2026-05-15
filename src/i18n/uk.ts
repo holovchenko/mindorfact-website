@@ -87,4 +87,27 @@ export const uk: Dictionary = {
       body: 'Старт із сотень безкоштовних карток. Купуй окремі пакети, якщо хочеш ще.',
     },
   },
+  cardGallery: {
+    heading: 'Спробуй картку',
+    sub: 'Шість справжніх карток із додатка. Натисни, щоб розкрити відповідь.',
+    cta: 'Ще 2 844 картки в App Store →',
+  },
+  metrics: {
+    heading: 'У цифрах',
+    cards: 'карток',
+    topics: 'пакетів тем',
+    languages: 'мови',
+    offline: 'офлайн',
+    cardsValue: '2 850',
+    topicsValue: '10',
+    languagesValue: '4',
+    offlineValue: '100%',
+    madeIn: 'Зроблено в Україні 🇺🇦, для всього світу.',
+  },
+  faq: { heading: 'Часті запитання' },
+  finalCta: {
+    heading: 'Спробуй Mindorfact сьогодні',
+    sub: 'iPhone, iPad. iOS 17 і новіші. Безкоштовно для старту.',
+    noIosLine: 'Не на iOS? Залиш пошту — повідомимо, коли запустимо для інших платформ.',
+  },
 };

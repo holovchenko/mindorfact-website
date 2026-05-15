@@ -70,4 +70,29 @@ export type Dictionary = {
     noAds: { title: string; body: string };
     freeWithPacks: { title: string; body: string };
   };
+  cardGallery: {
+    heading: string;
+    sub: string;
+    cta: string;
+  };
+  metrics: {
+    heading: string;
+    cards: string;
+    topics: string;
+    languages: string;
+    offline: string;
+    cardsValue: string;
+    topicsValue: string;
+    languagesValue: string;
+    offlineValue: string;
+    madeIn: string;
+  };
+  faq: {
+    heading: string;
+  };
+  finalCta: {
+    heading: string;
+    sub: string;
+    noIosLine: string;
+  };
 };

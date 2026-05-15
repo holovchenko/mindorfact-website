@@ -1,0 +1,30 @@
+---
+import { FAQ } from '../data/faq';
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+<section class="mt-24">
+  <h2 class="font-display text-h2 text-brand-ink sm:text-display-lg">{t.faq.heading}</h2>
+
+  <ul class="mt-10 divide-y divide-brand-stroke/60 border-y border-brand-stroke/60">
+    {FAQ.map((item) => (
+      <li>
+        <details class="group py-5">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 list-none text-body font-semibold text-brand-ink">
+            <span>{item.question[lang]}</span>
+            <span aria-hidden="true" class="text-brand-pink transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 max-w-prose text-body text-brand-mute">{item.answer[lang]}</p>
+        </details>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  details > summary::-webkit-details-marker { display: none; }
+</style>
