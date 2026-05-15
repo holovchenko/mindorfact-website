@@ -14,10 +14,14 @@ export const PRESS_COPY: PressCopy = {
   subtitle: {
     en: 'Critical thinking card game',
     uk: 'Тренажер критичного мислення',
+    de: 'Kartenspiel: kritisch denken',
+    fr: 'Défi de culture & réflexion',
   },
   short: {
     en: 'Four ways to play, ten topics, endless conversations — solo, with friends, or as a couple. Now in English, German and French. Tell us what you think.',
     uk: 'Чотири режими гри, десять тем, нескінченні розмови — соло, з друзями чи парою. Тепер і колоди за улюбленими серіалами. Спробуйте, поділіться враженнями.',
+    de: 'Vier Spielmodi, zehn Themen, endlose Gespräche — solo, mit Freunden oder zu zweit. Jetzt auf Deutsch, Englisch und Französisch. Sag uns deine Meinung.',
+    fr: 'Quatre modes, dix thèmes, des conversations sans fin — en solo, entre amis ou à deux. Maintenant en français, anglais et allemand. Dis-nous ce que tu en penses.',
   },
   medium: {
     en: `Mindorfact is a card game about how we think.
@@ -26,6 +30,12 @@ We mix up facts and opinions all the time — in the news, at the dinner table, 
     uk: `Mindorfact — це картки про те, як ми думаємо.
 
 Ми постійно змішуємо факти і думки. У новинах, у розмові за вечерею, у голові, коли намагаємося зрозуміти, чому погодилися на щось дивне. Mindorfact розкладає це по поличках через гру — по одній картці за раз.`,
+    de: `Mindorfact ist ein Kartenspiel darüber, wie wir denken.
+
+Wir verwechseln ständig Fakten und Meinungen — in den Nachrichten, beim Abendessen, im eigenen Kopf, wenn wir verstehen wollen, warum wir etwas Seltsamem zugestimmt haben. Mindorfact sortiert das im Spiel, eine Karte nach der anderen.`,
+    fr: `Mindorfact est un jeu de cartes sur notre façon de penser.
+
+On confond sans cesse les faits et les opinions — dans les actus, à table, dans sa tête quand on cherche pourquoi on a accepté quelque chose d'étrange. Mindorfact remet de l'ordre par le jeu, une carte à la fois.`,
   },
   long: {
     en: `Mindorfact is a card game about how we think.
@@ -100,5 +110,77 @@ Mindorfact не збирає особистих даних — лише істо
 
 ---
 Mindorfact створено в Україні. Українською. Тому що рідною думати приємніше.`,
+    de: `Mindorfact ist ein Kartenspiel darüber, wie wir denken.
+
+Wir verwechseln ständig Fakten und Meinungen — in den Nachrichten, beim Abendessen, im eigenen Kopf, wenn wir verstehen wollen, warum wir etwas Seltsamem zugestimmt haben. Mindorfact sortiert das im Spiel, eine Karte nach der anderen.
+
+◆ Vier Spielmodi
+
+Solo Quiz — schnelle Fragen mit Antwortauswahl. Gut für fünf freie Minuten im Bus.
+
+Swipe Sort — eine Aussage lesen, nach links wischen (Meinung) oder nach rechts (Fakt). Trainiert die schnelle Intuition.
+
+Discussion — eine Karte mit einer provokanten Frage; du besprichst sie zu zweit oder in der Gruppe. Keine richtigen Antworten — nur Fragen, an denen man schwer vorbeikommt.
+
+Party Mode — Pass-and-Play für 2–6 Leute auf einem Gerät. Karten gehen im Kreis, Punkte gehen an die Teams. Ein schöner Abend, ganz ohne Internet.
+
+◆ Zehn Themen
+
+Allgemein, Weltraum, Natur, Wissenschaft und Kunst sind von Anfang an offen. Fünf weitere Decks folgen bekannten Sitcoms und einer beliebten Kinder-Zeichentrickserie. Jedes Deck hat seinen eigenen Charakter — mal erstaunliche Fakten, mal die Frage „war das wirklich so im Original, oder haben Fans es dazugedichtet?".
+
+◆ Ohne Hetze, ohne Ausbrennen
+
+Du kannst eine Karte pro Tag spielen — die Tagesaufgabe erinnert dich am Abend. Oder du setzt dich hin und machst dreißig am Stück, wenn dir danach ist. Soll es nicht erinnern — ein Schalter in den Einstellungen.
+
+◆ Barrierefreiheit
+
+VoiceOver auf jedem Bildschirm, Dynamic Type bis Largest, Reduce Motion wird respektiert, Kontraste nach WCAG AA. Dunkles und helles Design — nach Kontext wählen, oder dem System folgen.
+
+◆ Datenschutz
+
+Mindorfact sammelt keine persönlichen Daten — nur deine Sitzungshistorie bleibt in deiner iCloud. Wir betreiben keine Analyse. Werbung sind nur AdMob-Banner und -Interstitials, mit einem einzigen Kauf für immer entfernbar. Alle Käufe sind einmalig und unterstützen Family Sharing — einmal zahlen für die ganze Familie. Lehnst du den System-Tracking-Dialog ab, funktioniert die App genauso, ohne Einschränkungen.
+
+◆ Was kommt
+
+Sag uns, was stört oder welches Thema du dir wünschst — support@mindorfact.com. Wir hören zu.
+
+---
+Hergestellt in der Ukraine.`,
+    fr: `Mindorfact est un jeu de cartes sur notre façon de penser.
+
+On confond sans cesse les faits et les opinions — dans les actus, à table, dans sa tête quand on cherche pourquoi on a accepté quelque chose d'étrange. Mindorfact remet de l'ordre par le jeu, une carte à la fois.
+
+◆ Quatre modes de jeu
+
+Solo Quiz — des questions rapides à choix multiples. Parfait pour cinq minutes dans le bus.
+
+Swipe Sort — tu lis une affirmation, tu glisses à gauche (opinion) ou à droite (fait). Entraîne ton intuition immédiate.
+
+Discussion — une carte avec une question provocante ; tu en discutes à deux ou en groupe. Pas de bonnes réponses — juste des questions difficiles à esquiver.
+
+Party Mode — pass-and-play pour 2 à 6 personnes sur un seul appareil. Les cartes tournent, les points vont aux équipes. Une bonne soirée, sans internet.
+
+◆ Dix thèmes
+
+Général, Espace, Nature, Science et Art sont ouverts dès le départ. Cinq autres jeux suivent des sitcoms populaires et un dessin animé pour enfants. Chaque jeu a son caractère — ici des faits surprenants, là la question « est-ce vraiment arrivé à l'écran, ou est-ce une invention des fans ? ».
+
+◆ Sans précipitation, sans lassitude
+
+Tu peux jouer une carte par jour — le défi quotidien te rappellera vers le dîner. Ou t'asseoir et en enchaîner trente, si l'envie est là. Tu ne veux pas de rappel — un interrupteur dans les Réglages.
+
+◆ Accessibilité
+
+VoiceOver sur chaque écran, Dynamic Type jusqu'à Largest, Reduce Motion respecté, contrastes selon WCAG AA. Thèmes clair et sombre — au choix selon le contexte, ou selon le système.
+
+◆ Confidentialité
+
+Mindorfact ne collecte aucune donnée personnelle — seul l'historique de tes sessions reste dans ton iCloud. Aucune analyse. La publicité se limite aux bannières et interstitiels AdMob, supprimables pour toujours avec un seul achat. Tous les achats sont uniques et compatibles avec le Partage familial — tu paies une fois pour toute la famille. Si tu refuses la demande de suivi du système, l'app fonctionne exactement pareil, sans aucune limite.
+
+◆ La suite
+
+Dis-nous ce qui coince ou quel thème tu aimerais — support@mindorfact.com. On écoute.
+
+---
+Conçu en Ukraine.`,
   },
 };
