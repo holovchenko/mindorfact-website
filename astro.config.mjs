@@ -4,16 +4,16 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 
-const ACTIVE_LOCALES = ['en', 'uk'];
-const FUTURE_LOCALES = ['de', 'fr'];
+const LOCALES = ['en', 'uk', 'de', 'fr'];
 
 export default defineConfig({
   site: 'https://mindorfact.com',
   output: 'static',
+  trailingSlash: 'always',
   adapter: vercel(),
   i18n: {
     defaultLocale: 'en',
-    locales: [...ACTIVE_LOCALES, ...FUTURE_LOCALES],
+    locales: LOCALES,
     routing: {
       prefixDefaultLocale: true,
       redirectToDefaultLocale: false,
