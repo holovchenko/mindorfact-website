@@ -135,7 +135,7 @@ export const uk: Dictionary = {
       logoLabel: 'Логотип (PNG)',
       logoSublabel: 'Квадратний знак бренду 1024×1024',
       screenshotsLabel: 'Скріншоти (ZIP)',
-      screenshotsSublabel: 'iPhone 17 Pro Max, українська локаль',
+      screenshotsSublabel: 'iPhone 17 Pro Max, 4 мови (uk, en, de, fr)',
       downloadCta: 'Завантажити →',
     },
   },
