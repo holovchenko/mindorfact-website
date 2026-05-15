@@ -2,54 +2,84 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { ACTIVE_LOCALES, LOCALE_HTML_LANG, DEFAULT_LOCALE, isActiveLocale, type ActiveLocale } from '../i18n/locales';
+import { dict } from '../i18n/t';
 
 export interface Props {
-  title: string;
+  lang: ActiveLocale;
+  title?: string;
   description?: string;
-  ogImage?: string;
+  path: string; // path without leading locale, e.g. "/support" or "/"
+  noindex?: boolean;
 }
 
-const {
-  title,
-  description = 'Mindorfact — карткова гра на критичне мислення. Доступна в App Store.',
-  ogImage = '/og-image.png',
-} = Astro.props;
+const { lang, title, description, path, noindex = false } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+if (!isActiveLocale(lang)) {
+  throw new Error(`BaseLayout: unknown lang prop "${lang}"`);
+}
+
+const t = dict(lang);
+const computedTitle = title ?? `${t.meta.siteName} — ${t.meta.tagline}`;
+const computedDesc  = description ?? t.meta.description;
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://mindorfact.com';
+const cleanPath = path === '/' ? '' : path;
+const canonical = `${site}/${lang}${cleanPath}`;
+
+const alternates = ACTIVE_LOCALES.map((loc) => ({
+  hreflang: LOCALE_HTML_LANG[loc],
+  href: `${site}/${loc}${cleanPath}`,
+}));
+alternates.push({ hreflang: 'x-default', href: `${site}/${DEFAULT_LOCALE}${cleanPath}` });
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: t.meta.siteName,
+  applicationCategory: 'GameApplication',
+  operatingSystem: 'iOS 17 or later',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  url: 'https://apps.apple.com/app/id6765670691',
+};
 ---
 
 <!doctype html>
-<html lang="uk">
+<html lang={LOCALE_HTML_LANG[lang]}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
-
-    <!-- Open Graph -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{computedTitle}</title>
+    <meta name="description" content={computedDesc} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    {alternates.map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
+    ))}
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
-
-    <!-- Twitter Card -->
+    <meta property="og:title" content={computedTitle} />
+    <meta property="og:description" content={computedDesc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${site}/og-image.png`} />
+    <meta property="og:locale" content={LOCALE_HTML_LANG[lang].replace('-', '_')} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
-
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-    <!-- Fonts: Inter via system stack, no external request -->
+    <script is:inline>
+      // Apply stored theme before paint to avoid flash.
+      try {
+        const stored = localStorage.getItem('mf-theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        }
+      } catch {}
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body>
-    <Header />
-    <main>
+  <body class="bg-brand-cream text-brand-ink antialiased">
+    <Header lang={lang} path={path} />
+    <main id="main" class="container-page py-12 sm:py-20">
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>
