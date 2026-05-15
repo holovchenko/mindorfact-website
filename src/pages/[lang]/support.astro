@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ACTIVE_LOCALES, type ActiveLocale } from '../../i18n/locales';
+import { dict } from '../../i18n/t';
+
+export function getStaticPaths() {
+  return ACTIVE_LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: ActiveLocale };
+const t = dict(lang);
+---
+
+<BaseLayout lang={lang} path="/support" title={`${t.support.title} — ${t.meta.siteName}`}>
+  <article class="prose-page">
+    <h1 class="font-display text-display-lg text-brand-ink">{t.support.title}</h1>
+    <p class="mt-4 max-w-prose text-body text-brand-mute">{t.support.intro}</p>
+
+    <section class="mt-12">
+      <h2 class="font-display text-h2 text-brand-ink">{t.support.contactHeading}</h2>
+      <p class="mt-3 text-body text-brand-mute">
+        {t.support.contactBody} <a href="mailto:support@mindorfact.com" class="text-brand-indigo">support@mindorfact.com</a>
+      </p>
+      <p class="mt-2 text-sm text-brand-mute">{t.support.responseTime}</p>
+    </section>
+  </article>
+</BaseLayout>

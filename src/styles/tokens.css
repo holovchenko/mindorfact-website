@@ -1,0 +1,49 @@
+:root {
+  --brand-pink:    #DA1B5C;
+  --brand-pink-700:#B41349;
+  --brand-indigo:  #3F2DD6;
+  --brand-cream:   #FFF0F1;
+  --brand-blush:   #FFE0E2;
+  --brand-ink:     #1F0E2E;
+  --brand-mute:    #6B496F;
+  --brand-surface: #FFFFFF;
+  --brand-stroke:  #FFC9CD;
+  --success:       #0A9F56;
+  --danger:        #D8334D;
+  --shadow-card:   0 1px 2px rgba(31, 14, 46, .04), 0 8px 24px rgba(218, 27, 92, .08);
+  --shadow-lifted: 0 2px 6px rgba(31, 14, 46, .06), 0 24px 48px rgba(218, 27, 92, .12);
+
+  /* Semantic aliases — prefer these for new code; brand- prefixed vars remain for the Tailwind theme. */
+  --color-bg:                var(--brand-cream);
+  --color-bg-elevated:       var(--brand-blush);
+  --color-text-primary:      var(--brand-ink);
+  --color-text-secondary:    var(--brand-mute);
+  --color-surface:           var(--brand-surface);
+  --color-border:            var(--brand-stroke);
+  --color-accent-primary:    var(--brand-pink);
+  --color-accent-secondary:  var(--brand-indigo);
+}
+
+[data-theme="dark"] {
+  --brand-cream:   #110510;
+  --brand-blush:   #1B0820;
+  --brand-ink:     #FFE8EC;
+  --brand-mute:    #CFA8BD;
+  --brand-surface: #261028;
+  --brand-stroke:  #561C5A;
+  --brand-pink:    #FF3F7C;
+  --brand-pink-700:#E62A6D;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --brand-cream:   #110510;
+    --brand-blush:   #1B0820;
+    --brand-ink:     #FFE8EC;
+    --brand-mute:    #CFA8BD;
+    --brand-surface: #261028;
+    --brand-stroke:  #561C5A;
+    --brand-pink:    #FF3F7C;
+    --brand-pink-700:#E62A6D;
+  }
+}

@@ -1,14 +1,43 @@
 ---
+import LocaleSwitcher from './LocaleSwitcher.astro';
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props {
+  lang: ActiveLocale;
+  path: string;
+}
+
+const { lang, path } = Astro.props;
+const t = dict(lang);
 const year = new Date().getFullYear();
 ---
 
-<footer class="site-footer">
-  <div class="site-footer-inner">
-    <div class="footer-links">
-      <a href="/privacy">Конфіденційність</a>
-      <a href="/terms">Умови використання</a>
-      <a href="/support">Підтримка</a>
+<footer class="border-t border-brand-stroke/60 bg-brand-blush/40">
+  <div class="container-page grid gap-10 py-12 sm:grid-cols-3">
+    <div>
+      <p class="font-display text-h3 text-brand-ink">Mindorfact</p>
+      <p class="mt-2 max-w-xs text-sm text-brand-mute">{t.meta.description}</p>
     </div>
-    <p>© {year} Kyrylo. Всі права захищено.</p>
+    <div>
+      <p class="text-xs uppercase tracking-wider text-brand-mute">{t.footer.legalHeading}</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href={`/${lang}/support`} class="no-underline text-brand-ink hover:text-brand-pink">{t.nav.support}</a></li>
+        <li><a href={`/${lang}/privacy`} class="no-underline text-brand-ink hover:text-brand-pink">{t.nav.privacy}</a></li>
+        <li><a href={`/${lang}/terms`} class="no-underline text-brand-ink hover:text-brand-pink">{t.nav.terms}</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-xs uppercase tracking-wider text-brand-mute">{t.footer.languagesHeading}</p>
+      <div class="mt-3">
+        <LocaleSwitcher current={lang} path={path} />
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-brand-stroke/60">
+    <div class="container-page flex flex-col items-start justify-between gap-2 py-5 text-xs text-brand-mute sm:flex-row sm:items-center">
+      <p>© {year} Kyrylo Holovchenko. {t.footer.rights}</p>
+      <p>{t.footer.appleDisclaimer}</p>
+    </div>
   </div>
 </footer>

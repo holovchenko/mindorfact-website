@@ -2,6 +2,7 @@
 title: "Умови використання"
 lastUpdated: "2026-05-01"
 description: "Умови використання додатку Mindorfact для iOS."
+locale: uk
 ---
 
 # Умови використання

@@ -17,3 +17,8 @@ dist/
 .env.local
 .env.production
 .vercel
+
+# Playwright
+test-results/
+playwright-report/
+.playwright/

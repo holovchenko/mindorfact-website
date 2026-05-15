@@ -1,0 +1,34 @@
+---
+import { ACTIVE_LOCALES, FUTURE_LOCALES, LOCALE_LABELS, type ActiveLocale, type Locale } from '../i18n/locales';
+import { dict } from '../i18n/t';
+
+export interface Props {
+  current: ActiveLocale;
+  path: string;
+}
+
+const { current, path } = Astro.props;
+const t = dict(current);
+const cleanPath = path === '/' ? '' : path;
+---
+
+<nav aria-label={t.nav.toggleLanguage} class="flex items-center gap-1 rounded-pill border border-brand-stroke bg-brand-surface/60 px-1 py-1">
+  {ACTIVE_LOCALES.map((loc: Locale) => (
+    <a
+      href={`/${loc}${cleanPath}`}
+      aria-current={loc === current ? 'page' : undefined}
+      class={`rounded-pill px-3 py-1 text-xs font-semibold no-underline transition-colors ${loc === current ? 'bg-brand-pink text-white' : 'text-brand-mute hover:text-brand-ink'}`}
+    >
+      {LOCALE_LABELS[loc]}
+    </a>
+  ))}
+  {FUTURE_LOCALES.map((loc) => (
+    <span
+      aria-disabled="true"
+      title="Coming soon"
+      class="rounded-pill px-3 py-1 text-xs font-semibold text-brand-mute opacity-40"
+    >
+      {LOCALE_LABELS[loc]}
+    </span>
+  ))}
+</nav>

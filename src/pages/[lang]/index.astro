@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AppStoreBadge from '../../components/AppStoreBadge.astro';
+import EmailSignup from '../../components/EmailSignup.astro';
+import { ACTIVE_LOCALES, type ActiveLocale } from '../../i18n/locales';
+import { dict } from '../../i18n/t';
+
+export function getStaticPaths() {
+  return ACTIVE_LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: ActiveLocale };
+const t = dict(lang);
+---
+
+<BaseLayout lang={lang} path="/">
+  <section class="flex flex-col gap-6">
+    <p class="text-xs uppercase tracking-widest text-brand-indigo">{t.home.heroKicker}</p>
+    <h1 class="font-display text-display-lg text-brand-ink sm:text-display-xl">
+      <span class="block">{t.home.heroTitleLine1}</span>
+      <span class="block text-brand-pink">{t.home.heroTitleLine2}</span>
+    </h1>
+    <p class="max-w-prose text-body text-brand-mute">{t.home.heroLede}</p>
+    <div class="flex flex-wrap items-center gap-3">
+      <AppStoreBadge lang={lang} variant="badge" />
+      <a href="#how-it-works" class="inline-flex items-center gap-2 rounded-pill border border-brand-stroke px-5 py-3 text-sm font-semibold text-brand-ink no-underline transition-colors hover:bg-brand-blush">
+        {t.home.heroSecondaryCta}
+      </a>
+    </div>
+    <p class="text-sm text-brand-mute">{t.home.heroMeta}</p>
+    <p class="text-xs text-brand-mute">{t.home.heroDeviceNote}</p>
+  </section>
+
+  <section id="how-it-works" class="mt-20 rounded-card border border-brand-stroke/50 bg-brand-blush/30 p-8">
+    <p class="text-sm text-brand-mute">Hero / bento / sample cards / metrics / FAQ → coming in PR 2 &amp; 3.</p>
+  </section>
+
+  <section class="mt-16">
+    <EmailSignup lang={lang} />
+  </section>
+</BaseLayout>
