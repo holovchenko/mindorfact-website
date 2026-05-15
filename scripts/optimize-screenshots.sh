@@ -21,8 +21,8 @@ count=0
 for png in "${DIR}"/solo-quiz-*.png; do
   webp="${png%.png}.webp"
   cwebp -quiet -q "${QUALITY}" "${png}" -o "${webp}"
-  png_kb=$(( $(stat -f%z "${png}") / 1024 ))
-  webp_kb=$(( $(stat -f%z "${webp}") / 1024 ))
+  png_kb=$(( $(wc -c < "${png}") / 1024 ))
+  webp_kb=$(( $(wc -c < "${webp}") / 1024 ))
   printf '  %-40s %5d KB  ->  %5d KB  (-%2d%%)\n' \
     "$(basename "${png}")" "${png_kb}" "${webp_kb}" \
     "$(( 100 - (webp_kb * 100 / png_kb) ))"
