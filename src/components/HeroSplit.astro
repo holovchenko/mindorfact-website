@@ -1,0 +1,40 @@
+---
+import AppStoreBadge from './AppStoreBadge.astro';
+import PhoneFrame from './PhoneFrame.astro';
+import SampleCard from './SampleCard.astro';
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+import { HERO_FLOAT_CARDS } from '../data/sample-cards';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+
+<section class="grid grid-cols-1 gap-12 py-6 sm:py-10 lg:grid-cols-12 lg:gap-8">
+  <div class="lg:col-span-6 flex flex-col gap-6 lg:justify-center">
+    <p class="text-xs uppercase tracking-widest text-brand-indigo">{t.home.heroKicker}</p>
+    <h1 class="font-display text-display-lg text-brand-ink sm:text-display-xl">
+      <span class="block">{t.home.heroTitleLine1}</span>
+      <span class="block text-brand-pink">{t.home.heroTitleLine2}</span>
+    </h1>
+    <p class="max-w-prose text-body text-brand-mute">{t.home.heroLede}</p>
+    <div class="flex flex-wrap items-center gap-3">
+      <AppStoreBadge lang={lang} variant="badge" />
+      <a href="#how-it-works" class="inline-flex items-center gap-2 rounded-pill border border-brand-stroke px-5 py-3 text-sm font-semibold text-brand-ink no-underline transition-colors hover:bg-brand-blush">
+        {t.home.heroSecondaryCta}
+      </a>
+    </div>
+    <p class="text-sm text-brand-mute">{t.home.heroMeta}</p>
+  </div>
+
+  <div class="lg:col-span-6 relative grid place-items-center min-h-[28rem]">
+    <PhoneFrame src="/screenshots/solo-quiz-uk.png" alt="Mindorfact" />
+    <div class="absolute -top-2 -left-2 sm:left-0 sm:-translate-x-1/2 hidden sm:block">
+      <SampleCard card={HERO_FLOAT_CARDS[0]} lang={lang} tilt={-6} width={14} class="opacity-95" />
+    </div>
+    <div class="absolute -bottom-2 -right-2 sm:right-0 sm:translate-x-1/3 hidden sm:block">
+      <SampleCard card={HERO_FLOAT_CARDS[1]} lang={lang} tilt={4} width={14} class="opacity-95" />
+    </div>
+  </div>
+</section>
