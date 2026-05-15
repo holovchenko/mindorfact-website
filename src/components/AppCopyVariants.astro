@@ -1,24 +1,30 @@
 ---
 import { PRESS_COPY } from '../data/press-copy';
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+const t = dict(lang);
 ---
 <div class="space-y-8">
   <section>
-    <h3 class="font-display text-h3 text-brand-ink">Name & subtitle</h3>
-    <p class="mt-2"><strong>{PRESS_COPY.name}</strong> — {PRESS_COPY.subtitle}</p>
+    <h3 class="font-display text-h3 text-brand-ink">{t.press.appCopySections.nameSubtitle}</h3>
+    <p class="mt-2"><strong>{PRESS_COPY.name}</strong> — {PRESS_COPY.subtitle[lang]}</p>
   </section>
 
   <section>
-    <h3 class="font-display text-h3 text-brand-ink">Short (~150 chars)</h3>
-    <p class="mt-2 text-body text-brand-mute">{PRESS_COPY.short}</p>
+    <h3 class="font-display text-h3 text-brand-ink">{t.press.appCopySections.short}</h3>
+    <p class="mt-2 text-body text-brand-mute">{PRESS_COPY.short[lang]}</p>
   </section>
 
   <section>
-    <h3 class="font-display text-h3 text-brand-ink">Medium</h3>
-    <p class="mt-2 whitespace-pre-line text-body text-brand-mute">{PRESS_COPY.medium}</p>
+    <h3 class="font-display text-h3 text-brand-ink">{t.press.appCopySections.medium}</h3>
+    <p class="mt-2 whitespace-pre-line text-body text-brand-mute">{PRESS_COPY.medium[lang]}</p>
   </section>
 
   <section>
-    <h3 class="font-display text-h3 text-brand-ink">Long</h3>
-    <p class="mt-2 whitespace-pre-line text-body text-brand-mute">{PRESS_COPY.long}</p>
+    <h3 class="font-display text-h3 text-brand-ink">{t.press.appCopySections.long}</h3>
+    <p class="mt-2 whitespace-pre-line text-body text-brand-mute">{PRESS_COPY.long[lang]}</p>
   </section>
 </div>

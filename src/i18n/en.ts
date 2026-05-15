@@ -110,4 +110,33 @@ export const en: Dictionary = {
     sub: 'iPhone, iPad. iOS 17 and later. Free to start.',
     noIosLine: 'No iOS? Leave your email and we will let you know when other platforms ship.',
   },
+  press: {
+    title: 'Press kit',
+    intro: 'Logos, screenshots, copy variants, and brand colors for Mindorfact. Free to use in articles and reviews.',
+    contactPrefix: 'Press contact:',
+    downloadsHeading: 'Downloads',
+    colorsHeading: 'Brand colors',
+    descriptionHeading: 'App description',
+    quickFactsHeading: 'Quick facts',
+    quickFacts: {
+      device: 'Solo iOS app, available on iPhone and iPad (iOS 17+).',
+      content: '2,850 cards, 10 topic packs, 4 languages.',
+      offline: "Fully offline. No accounts. iCloud sync between user's own devices.",
+      madeIn: 'Made in Ukraine 🇺🇦, by Kyrylo Holovchenko.',
+      appStoreLine: 'App Store listing:',
+    },
+    appCopySections: {
+      nameSubtitle: 'Name & subtitle',
+      short: 'Short (~150 chars)',
+      medium: 'Medium',
+      long: 'Long',
+    },
+    downloads: {
+      logoLabel: 'Logo (PNG)',
+      logoSublabel: '1024×1024 square brand mark',
+      screenshotsLabel: 'Screenshots (ZIP)',
+      screenshotsSublabel: 'iPhone 17 Pro Max screenshots, Ukrainian UI',
+      downloadCta: 'Download →',
+    },
+  },
 };

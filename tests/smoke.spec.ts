@@ -95,7 +95,7 @@ test('UK home renders Ukrainian FAQ question', async ({ page }) => {
   await expect(summaries).toContainText(/Mindorfact|вік|віку/i);
 });
 
-test('/en/press renders downloads, colors, copy, quick facts', async ({ page }) => {
+test('/en/press renders English Press kit', async ({ page }) => {
   await page.goto('/en/press');
   await expect(page.locator('h1')).toHaveText('Press kit');
   await expect(page.locator('a[download]')).toHaveCount(2);
@@ -104,9 +104,13 @@ test('/en/press renders downloads, colors, copy, quick facts', async ({ page }) 
   expect(await facts.count()).toBeGreaterThanOrEqual(5);
 });
 
-test('/uk/press also renders (English-universal content)', async ({ page }) => {
+test('/uk/press renders Ukrainian Прес-кіт with localized content', async ({ page }) => {
   await page.goto('/uk/press');
-  await expect(page.locator('h1')).toHaveText('Press kit');
+  await expect(page.locator('h1')).toHaveText('Прес-кіт');
+  // Ukrainian download labels
+  await expect(page.locator('a[download]').first()).toContainText(/Логотип|Скріншоти/);
+  // Ukrainian quick facts heading
+  await expect(page.locator('h2', { hasText: 'Коротко' })).toBeVisible();
 });
 
 test('Home emits FAQPage JSON-LD', async ({ page }) => {
