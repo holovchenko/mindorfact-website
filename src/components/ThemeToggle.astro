@@ -1,0 +1,45 @@
+---
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  aria-label={t.nav.toggleTheme}
+  class="grid h-9 w-9 place-items-center rounded-full border border-brand-stroke bg-brand-surface/60 text-brand-ink transition-colors hover:bg-brand-blush"
+>
+  <svg data-icon-sun viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+  </svg>
+  <svg data-icon-moon viewBox="0 0 24 24" class="hidden h-4 w-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+  </svg>
+</button>
+
+<script is:inline>
+  (() => {
+    const btn = document.querySelector('[data-theme-toggle]');
+    if (!btn) return;
+    const sun = btn.querySelector('[data-icon-sun]');
+    const moon = btn.querySelector('[data-icon-moon]');
+    const apply = (theme) => {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('mf-theme', theme); } catch {}
+      sun?.classList.toggle('hidden', theme === 'dark');
+      moon?.classList.toggle('hidden', theme !== 'dark');
+    };
+    const stored = (() => { try { return localStorage.getItem('mf-theme'); } catch { return null; } })();
+    const initial = stored ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    apply(initial);
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') ?? 'light';
+      apply(current === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
