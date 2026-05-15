@@ -8,7 +8,7 @@ export interface Props { lang: ActiveLocale; }
 const { lang } = Astro.props;
 const t = dict(lang);
 ---
-<section class="mt-24 -mx-5 sm:-mx-8 rounded-none bg-gradient-to-br from-brand-pink to-brand-indigo px-5 py-16 text-white sm:px-12 sm:py-20">
+<section class="mt-24 bg-gradient-to-br from-brand-pink to-brand-indigo px-5 py-16 text-white sm:px-12 sm:py-20" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: auto;">
   <div class="mx-auto max-w-page text-center">
     <h2 class="font-display text-display-lg text-white sm:text-display-xl">{t.finalCta.heading}</h2>
     <p class="mt-4 text-body opacity-90">{t.finalCta.sub}</p>
