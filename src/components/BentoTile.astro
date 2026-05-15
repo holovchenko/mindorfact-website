@@ -9,8 +9,18 @@ const { colSpan = 6, rowSpan = 1, accent = 'cream', class: extra = '' } = Astro.
 const bg = accent === 'pink' ? 'bg-brand-pink/10' : accent === 'indigo' ? 'bg-brand-indigo/10' : 'bg-brand-blush/60';
 ---
 <article
-  class={`group rounded-card border border-brand-stroke/60 ${bg} p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lifted ${extra}`}
+  class={`bento-tile group rounded-card border border-brand-stroke/60 ${bg} p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lifted ${extra}`}
   style={`grid-column: span ${colSpan} / span ${colSpan}; grid-row: span ${rowSpan} / span ${rowSpan};`}
 >
   <slot />
 </article>
+
+<style>
+  /* Below `md` (768px), reset to single-column stack — inline desktop spans would otherwise create implicit columns and overflow. */
+  @media (max-width: 767.98px) {
+    .bento-tile {
+      grid-column: 1 / -1 !important;
+      grid-row: auto !important;
+    }
+  }
+</style>
