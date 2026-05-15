@@ -1,0 +1,54 @@
+---
+import type { SampleCard } from '../data/sample-cards';
+import type { ActiveLocale } from '../i18n/locales';
+import { dict } from '../i18n/t';
+
+export interface Props {
+  card: SampleCard;
+  lang: ActiveLocale;
+  /** Tilt in degrees applied to the OUTER wrapper. */
+  tilt?: number;
+  /** Width in rem. */
+  width?: number;
+  class?: string;
+}
+
+const { card, lang, tilt = 0, width = 18, class: extra = '' } = Astro.props;
+const t = dict(lang);
+const answerLabel = card.correctAnswer === 'A' ? t.hero.factLabel : t.hero.opinionLabel;
+const checkboxId = `sc-${card.id}`;
+---
+
+<div class={`sample-card ${extra}`} style={`--tilt:${tilt}deg; --w:${width}rem;`}>
+  <input id={checkboxId} type="checkbox" class="sr-only" />
+  <label for={checkboxId} class="block w-[var(--w)] cursor-pointer select-none">
+    <div class="sc-flip relative aspect-[5/6] transition-transform duration-500" style="transform-style: preserve-3d;">
+      <!-- front -->
+      <div class="absolute inset-0 rounded-card border border-brand-stroke bg-brand-surface p-5 shadow-card flex flex-col gap-3" style="backface-visibility: hidden;">
+        <span class="text-2xl" aria-hidden="true">{card.emoji}</span>
+        <p class="text-body text-brand-ink leading-snug">{card.statement[lang]}</p>
+        <span class="mt-auto text-xs uppercase tracking-wider text-brand-mute">{lang === 'uk' ? 'Натисни, щоб розкрити' : 'Tap to flip'}</span>
+      </div>
+      <!-- back -->
+      <div class="absolute inset-0 rounded-card border border-brand-stroke bg-brand-blush p-5 shadow-card flex flex-col gap-3" style="backface-visibility: hidden; transform: rotateY(180deg);">
+        <span class="inline-flex w-fit rounded-pill bg-brand-pink px-3 py-1 text-xs font-semibold text-white">{answerLabel}</span>
+        <p class="text-caption text-brand-ink leading-snug">{card.explanation[lang]}</p>
+      </div>
+    </div>
+  </label>
+</div>
+
+<style>
+  .sample-card {
+    transform: rotate(var(--tilt));
+    will-change: transform;
+  }
+  .sample-card:has(input:checked) .sc-flip {
+    transform: rotateY(180deg);
+  }
+  .sample-card input:focus-visible + label .sc-flip {
+    outline: 2px solid var(--brand-pink);
+    outline-offset: 4px;
+    border-radius: 20px;
+  }
+</style>
