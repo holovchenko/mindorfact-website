@@ -110,4 +110,33 @@ export const uk: Dictionary = {
     sub: 'iPhone, iPad. iOS 17 і новіші. Безкоштовно для старту.',
     noIosLine: 'Не на iOS? Залиш пошту — повідомимо, коли запустимо для інших платформ.',
   },
+  press: {
+    title: 'Прес-кіт',
+    intro: 'Лого, скріншоти, варіанти описів і брендові кольори Mindorfact. Можна вільно використовувати у статтях і оглядах.',
+    contactPrefix: 'Контакт для преси:',
+    downloadsHeading: 'Завантаження',
+    colorsHeading: 'Кольори бренду',
+    descriptionHeading: 'Опис додатка',
+    quickFactsHeading: 'Коротко',
+    quickFacts: {
+      device: 'Соло-додаток для iOS: iPhone і iPad (iOS 17+).',
+      content: '2 850 карток, 10 пакетів тем, 4 мови.',
+      offline: 'Повністю офлайн. Без аккаунтів. Синхронізація між своїми пристроями через iCloud.',
+      madeIn: 'Зроблено в Україні 🇺🇦, Кирилом Головченком.',
+      appStoreLine: 'Сторінка в App Store:',
+    },
+    appCopySections: {
+      nameSubtitle: 'Назва й підзаголовок',
+      short: 'Короткий (~150 знаків)',
+      medium: 'Середній',
+      long: 'Розгорнутий',
+    },
+    downloads: {
+      logoLabel: 'Логотип (PNG)',
+      logoSublabel: 'Квадратний знак бренду 1024×1024',
+      screenshotsLabel: 'Скріншоти (ZIP)',
+      screenshotsSublabel: 'iPhone 17 Pro Max, українська локаль',
+      downloadCta: 'Завантажити →',
+    },
+  },
 };

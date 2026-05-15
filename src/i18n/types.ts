@@ -95,4 +95,33 @@ export type Dictionary = {
     sub: string;
     noIosLine: string;
   };
+  press: {
+    title: string;
+    intro: string;
+    contactPrefix: string;
+    downloadsHeading: string;
+    colorsHeading: string;
+    descriptionHeading: string;
+    quickFactsHeading: string;
+    quickFacts: {
+      device: string;
+      content: string;
+      offline: string;
+      madeIn: string;
+      appStoreLine: string;
+    };
+    appCopySections: {
+      nameSubtitle: string;
+      short: string;
+      medium: string;
+      long: string;
+    };
+    downloads: {
+      logoLabel: string;
+      logoSublabel: string;
+      screenshotsLabel: string;
+      screenshotsSublabel: string;
+      downloadCta: string;
+    };
+  };
 };
