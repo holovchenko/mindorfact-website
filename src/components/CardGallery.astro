@@ -1,0 +1,28 @@
+---
+import SampleCard from './SampleCard.astro';
+import { SAMPLE_CARDS } from '../data/sample-cards';
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+const t = dict(lang);
+const APP_STORE_URL = 'https://apps.apple.com/app/id6765670691';
+---
+<section class="mt-24">
+  <p class="text-xs uppercase tracking-widest text-brand-indigo">{t.cardGallery.heading}</p>
+  <h2 class="mt-2 font-display text-h2 text-brand-ink sm:text-display-lg">{t.cardGallery.heading}</h2>
+  <p class="mt-3 max-w-prose text-body text-brand-mute">{t.cardGallery.sub}</p>
+
+  <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
+    {SAMPLE_CARDS.map((card) => (
+      <SampleCard card={card} lang={lang} width={18} />
+    ))}
+  </div>
+
+  <p class="mt-10 text-center">
+    <a href={APP_STORE_URL} target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-brand-indigo no-underline hover:text-brand-pink">
+      {t.cardGallery.cta}
+    </a>
+  </p>
+</section>
