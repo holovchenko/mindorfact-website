@@ -50,4 +50,41 @@ export const en: Dictionary = {
     termsTitle: 'Terms of Use',
     lastUpdatedPrefix: 'Last updated:',
   },
+  topics: {
+    general: 'General',
+    art: 'Art',
+    science: 'Science',
+    nature: 'Nature',
+    space: 'Space',
+    moreFanFacts: '+5 fan-fact packs inside',
+  },
+  hero: { factLabel: 'Fact', opinionLabel: 'Opinion' },
+  bento: {
+    sectionKicker: 'What you get',
+    soloDaily: {
+      title: 'Solo + Daily challenge',
+      body: 'A fresh card every day. Build streaks. No ads in Daily — ever.',
+      streakLabel: 'Today',
+    },
+    party: {
+      title: 'Party mode',
+      body: 'Pass the phone around the table. Friends shout their answers, the app keeps score.',
+    },
+    topics: {
+      title: '10 topic packs',
+      body: 'Art, science, nature, space, general — plus extra fan-fact packs unlocked from the store.',
+    },
+    icloud: {
+      title: 'iCloud sync',
+      body: 'No accounts. Progress moves with your Apple ID.',
+    },
+    noAds: {
+      title: 'No ads in Daily',
+      body: 'Daily Challenge is always ad-free, even on the free tier.',
+    },
+    freeWithPacks: {
+      title: 'Free to play. Unlock more.',
+      body: 'Start with hundreds of free cards. Buy individual packs only if you want more.',
+    },
+  },
 };

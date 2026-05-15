@@ -48,4 +48,25 @@ export type Dictionary = {
     termsTitle: string;
     lastUpdatedPrefix: string;
   };
+  topics: {
+    general: string;
+    art: string;
+    science: string;
+    nature: string;
+    space: string;
+    moreFanFacts: string;
+  };
+  hero: {
+    factLabel: string;
+    opinionLabel: string;
+  };
+  bento: {
+    sectionKicker: string;
+    soloDaily: { title: string; body: string; streakLabel: string };
+    party: { title: string; body: string };
+    topics: { title: string; body: string };
+    icloud: { title: string; body: string };
+    noAds: { title: string; body: string };
+    freeWithPacks: { title: string; body: string };
+  };
 };
