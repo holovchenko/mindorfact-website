@@ -11,7 +11,7 @@ export const de: Dictionary = {
     privacy: 'Datenschutz',
     terms: 'Nutzungs­bedingungen',
     press: 'Presse',
-    download: 'Im App Store laden',
+    download: 'Lade im App Store',
     downloadPrefix: 'Lade im',
     toggleLanguage: 'Sprache wechseln',
     toggleTheme: 'Dunkles Design umschalten',
