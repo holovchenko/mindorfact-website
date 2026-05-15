@@ -1,0 +1,28 @@
+---
+import AppStoreBadge from './AppStoreBadge.astro';
+import EmailSignup from './EmailSignup.astro';
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+<section class="mt-24 -mx-5 sm:-mx-8 rounded-none bg-gradient-to-br from-brand-pink to-brand-indigo px-5 py-16 text-white sm:px-12 sm:py-20">
+  <div class="mx-auto max-w-page text-center">
+    <h2 class="font-display text-display-lg text-white sm:text-display-xl">{t.finalCta.heading}</h2>
+    <p class="mt-4 text-body opacity-90">{t.finalCta.sub}</p>
+    <div class="mt-8 flex justify-center">
+      <AppStoreBadge lang={lang} variant="badge" />
+    </div>
+  </div>
+
+  <div class="mx-auto mt-12 max-w-page">
+    <div class="rounded-card bg-white/10 p-6 backdrop-blur-sm sm:p-8">
+      <p class="text-sm text-white/90">{t.finalCta.noIosLine}</p>
+      <div class="mt-4">
+        <EmailSignup lang={lang} />
+      </div>
+    </div>
+  </div>
+</section>
