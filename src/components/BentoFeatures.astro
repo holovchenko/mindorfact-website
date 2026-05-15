@@ -1,0 +1,50 @@
+---
+import BentoTile from './BentoTile.astro';
+import TopicPills from './TopicPills.astro';
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+<section id="how-it-works" class="mt-24">
+  <p class="text-xs uppercase tracking-widest text-brand-indigo">{t.bento.sectionKicker}</p>
+  <h2 class="mt-2 font-display text-h2 text-brand-ink sm:text-display-lg">{t.home.heroSecondaryCta}</h2>
+
+  <div class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-12 md:auto-rows-[minmax(140px,_auto)]">
+    <BentoTile colSpan={8} rowSpan={2} accent="pink">
+      <p class="text-xs uppercase tracking-wider text-brand-pink">{t.bento.soloDaily.streakLabel}</p>
+      <h3 class="mt-2 font-display text-h3 text-brand-ink">{t.bento.soloDaily.title}</h3>
+      <p class="mt-2 text-body text-brand-mute">{t.bento.soloDaily.body}</p>
+    </BentoTile>
+
+    <BentoTile colSpan={4} rowSpan={2} accent="indigo">
+      <h3 class="font-display text-h3 text-brand-ink">{t.bento.party.title}</h3>
+      <p class="mt-2 text-body text-brand-mute">{t.bento.party.body}</p>
+    </BentoTile>
+
+    <BentoTile colSpan={6} rowSpan={2} accent="cream">
+      <h3 class="font-display text-h3 text-brand-ink">{t.bento.topics.title}</h3>
+      <p class="mt-2 text-body text-brand-mute">{t.bento.topics.body}</p>
+      <div class="mt-4">
+        <TopicPills lang={lang} />
+      </div>
+    </BentoTile>
+
+    <BentoTile colSpan={3} rowSpan={1} accent="cream">
+      <h3 class="font-display text-base font-semibold text-brand-ink">{t.bento.icloud.title}</h3>
+      <p class="mt-1 text-caption text-brand-mute">{t.bento.icloud.body}</p>
+    </BentoTile>
+
+    <BentoTile colSpan={3} rowSpan={1} accent="cream">
+      <h3 class="font-display text-base font-semibold text-brand-ink">{t.bento.noAds.title}</h3>
+      <p class="mt-1 text-caption text-brand-mute">{t.bento.noAds.body}</p>
+    </BentoTile>
+
+    <BentoTile colSpan={12} rowSpan={1} accent="pink">
+      <h3 class="font-display text-h3 text-brand-ink">{t.bento.freeWithPacks.title}</h3>
+      <p class="mt-2 text-body text-brand-mute">{t.bento.freeWithPacks.body}</p>
+    </BentoTile>
+  </div>
+</section>
