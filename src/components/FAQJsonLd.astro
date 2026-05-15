@@ -1,0 +1,18 @@
+---
+import { FAQ } from '../data/faq';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+
+const payload = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.question[lang],
+    acceptedAnswer: { '@type': 'Answer', text: item.answer[lang] },
+  })),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(payload)} />
