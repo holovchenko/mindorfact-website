@@ -1,5 +1,143 @@
 import type { Dictionary } from './types';
-import { en } from './en';
 
-// Phase 2: FR copy. Until translated, falls back to English wholesale.
-export const fr: Dictionary = en;
+export const fr: Dictionary = {
+  meta: {
+    siteName: 'Mindorfact',
+    tagline: 'Défi de culture & réflexion',
+    description: 'Mindorfact — un jeu de cartes pour aiguiser l’esprit critique. Disponible sur l’App Store.',
+  },
+  nav: {
+    support: 'Aide',
+    privacy: 'Confidentialité',
+    terms: 'Conditions',
+    press: 'Presse',
+    download: 'Télécharger sur l’App Store',
+    downloadPrefix: 'Télécharger sur l’',
+    toggleLanguage: 'Changer de langue',
+    toggleTheme: 'Basculer le mode sombre',
+  },
+  home: {
+    heroKicker: 'Application iOS',
+    heroTitleLine1: 'Un jeu de cartes',
+    heroTitleLine2: 'pour l’esprit critique',
+    heroLede: 'Neuf thèmes, 2 850 cartes, quatre langues, quatre modes de jeu. En solo ou entre amis. Entièrement hors ligne.',
+    heroSecondaryCta: 'Comment ça marche',
+    heroMeta: '9 thèmes · 2 850 cartes · 4 langues',
+    heroDeviceNote: 'Fonctionne sur iPhone et iPad. iOS 17 et versions ultérieures.',
+  },
+  footer: {
+    rights: 'Tous droits réservés.',
+    appleDisclaimer: 'App Store est une marque de service d’Apple Inc.',
+    languagesHeading: 'Langues',
+    legalHeading: 'Mentions légales',
+    companyHeading: 'À propos',
+  },
+  emailSignup: {
+    heading: 'Reste au courant',
+    placeholder: 'toi@email.fr',
+    submit: 'S’abonner',
+    privacyNote: 'Pas de spam. Désabonnement à tout moment.',
+  },
+  support: {
+    title: 'Aide',
+    intro: 'Une question, une idée, un problème ? Écris-nous à l’adresse ci-dessous.',
+    faqHeading: 'Questions fréquentes',
+    contactHeading: 'Nous contacter',
+    contactBody: 'Écris-nous à',
+    responseTime: 'Nous répondons sous 1 à 2 jours ouvrés.',
+  },
+  legal: {
+    privacyTitle: 'Politique de confidentialité',
+    termsTitle: 'Conditions d’utilisation',
+    lastUpdatedPrefix: 'Dernière mise à jour :',
+  },
+  topics: {
+    general: 'Général',
+    art: 'Art',
+    science: 'Science',
+    nature: 'Nature',
+    space: 'Espace',
+    moreFanFacts: '+5 packs de fan-facts à l’intérieur',
+  },
+  hero: { factLabel: 'Fait', opinionLabel: 'Opinion', tapToFlip: 'Touche pour retourner' },
+  bento: {
+    sectionKicker: 'Ce que tu obtiens',
+    soloDaily: {
+      title: 'Solo + Défi quotidien',
+      body: 'Une nouvelle carte chaque jour. Construis ta série. Le Quotidien — jamais de publicité.',
+      streakLabel: 'Aujourd’hui',
+    },
+    party: {
+      title: 'Mode soirée',
+      body: 'On se passe le téléphone autour de la table. Les amis crient leur réponse, l’app compte les points.',
+    },
+    topics: {
+      title: '10 packs de thèmes',
+      body: 'Art, science, nature, espace, général — plus des packs de fan-facts à débloquer dans la boutique.',
+    },
+    icloud: {
+      title: 'Synchronisation iCloud',
+      body: 'Pas de compte. Ta progression suit ton identifiant Apple.',
+    },
+    noAds: {
+      title: 'Aucune pub dans le Quotidien',
+      body: 'Le défi quotidien est toujours sans pub, même en version gratuite.',
+    },
+    freeWithPacks: {
+      title: 'Gratuit. Débloque davantage.',
+      body: 'Commence avec des centaines de cartes gratuites. Achète des packs uniquement si tu en veux plus.',
+    },
+  },
+  cardGallery: {
+    heading: 'Essaie une carte',
+    sub: 'Six vraies cartes de l’app. Touche pour retourner et voir la réponse.',
+    cta: '2 844 cartes de plus sur l’App Store →',
+  },
+  metrics: {
+    heading: 'En chiffres',
+    cards: 'cartes',
+    topics: 'packs de thèmes',
+    languages: 'langues',
+    offline: 'hors ligne',
+    cardsValue: '2 850',
+    topicsValue: '10',
+    languagesValue: '4',
+    offlineValue: '100 %',
+    madeIn: 'Fabriqué en Ukraine 🇺🇦, pour tout le monde.',
+  },
+  faq: { heading: 'Questions fréquentes' },
+  finalCta: {
+    heading: 'Essaie Mindorfact aujourd’hui',
+    sub: 'iPhone, iPad. iOS 17 et versions ultérieures. Gratuit pour commencer.',
+    noIosLine: 'Pas d’iOS ? Laisse ton e-mail — on te préviendra quand d’autres plateformes seront prêtes.',
+  },
+  press: {
+    title: 'Kit presse',
+    intro: 'Logos, captures d’écran, variantes de texte et couleurs de marque pour Mindorfact. Libres d’usage dans articles et critiques.',
+    contactPrefix: 'Contact presse :',
+    downloadsHeading: 'Téléchargements',
+    colorsHeading: 'Couleurs de marque',
+    descriptionHeading: 'Description de l’app',
+    quickFactsHeading: 'En bref',
+    quickFacts: {
+      device: 'App iOS solo, disponible sur iPhone et iPad (iOS 17+).',
+      content: '2 850 cartes, 10 packs de thèmes, 4 langues.',
+      offline: 'Entièrement hors ligne. Pas de compte. Synchronisation iCloud entre tes propres appareils.',
+      madeIn: 'Fabriqué en Ukraine 🇺🇦, par Kyrylo Holovchenko.',
+      appStoreLine: 'Page App Store :',
+    },
+    appCopySections: {
+      nameSubtitle: 'Nom et sous-titre',
+      short: 'Court (~150 caractères)',
+      medium: 'Moyen',
+      long: 'Long',
+    },
+    downloads: {
+      logoLabel: 'Logo (PNG)',
+      logoSublabel: 'Marque carrée 1024×1024',
+      screenshotsLabel: 'Captures d’écran (ZIP)',
+      screenshotsSublabel: 'iPhone 17 Pro Max en 4 langues (uk, en, de, fr)',
+      downloadCta: 'Télécharger →',
+    },
+  },
+};

@@ -1,5 +1,5 @@
-export const ACTIVE_LOCALES = ['en', 'uk'] as const;
-export const FUTURE_LOCALES = ['de', 'fr'] as const;
+export const ACTIVE_LOCALES = ['en', 'uk', 'de', 'fr'] as const;
+export const FUTURE_LOCALES = [] as const;
 export const ALL_LOCALES = [...ACTIVE_LOCALES, ...FUTURE_LOCALES] as const;
 
 export type ActiveLocale = (typeof ACTIVE_LOCALES)[number];

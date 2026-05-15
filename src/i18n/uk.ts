@@ -12,6 +12,7 @@ export const uk: Dictionary = {
     terms: 'Умови',
     press: 'Пресс-кіт',
     download: 'Завантажити в App Store',
+    downloadPrefix: 'Завантажити в',
     toggleLanguage: 'Змінити мову',
     toggleTheme: 'Перемкнути тему',
   },

@@ -12,6 +12,7 @@ export const en: Dictionary = {
     terms: 'Terms',
     press: 'Press',
     download: 'Get on App Store',
+    downloadPrefix: 'Download on the',
     toggleLanguage: 'Change language',
     toggleTheme: 'Toggle dark mode',
   },
