@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getEntry } from 'astro:content';
 
-const entry = await getEntry('legal', 'terms');
+const entry = await getEntry('legal', 'uk/terms');
 const { Content } = await entry.render();
 ---
 
