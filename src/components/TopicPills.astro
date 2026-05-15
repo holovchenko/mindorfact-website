@@ -1,0 +1,20 @@
+---
+import { TOPICS } from '../data/topics';
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+<ul class="flex flex-wrap gap-2">
+  {TOPICS.map((topic) => (
+    <li class="inline-flex items-center gap-1.5 rounded-pill bg-brand-surface px-3 py-1.5 text-sm shadow-card">
+      <span aria-hidden="true">{topic.emoji}</span>
+      <span class="font-medium text-brand-ink">{t.topics[topic.labelKey]}</span>
+    </li>
+  ))}
+  <li class="inline-flex items-center gap-1.5 rounded-pill border border-dashed border-brand-stroke px-3 py-1.5 text-sm text-brand-mute">
+    {t.topics.moreFanFacts}
+  </li>
+</ul>
