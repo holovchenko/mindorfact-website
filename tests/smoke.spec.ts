@@ -37,9 +37,14 @@ test('Theme toggle flips data-theme attribute', async ({ page }) => {
   expect(after).not.toBe(before);
 });
 
-test('Home shows hero with phone frame screenshot', async ({ page }) => {
+test('EN home shows English hero screenshot', async ({ page }) => {
   await page.goto('/en');
   await expect(page.locator('h1')).toContainText(/card game/i);
+  await expect(page.locator('img[src="/screenshots/solo-quiz-en.png"]')).toBeVisible();
+});
+
+test('UK home shows Ukrainian hero screenshot', async ({ page }) => {
+  await page.goto('/uk');
   await expect(page.locator('img[src="/screenshots/solo-quiz-uk.png"]')).toBeVisible();
 });
 
