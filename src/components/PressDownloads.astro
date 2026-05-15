@@ -1,18 +1,32 @@
 ---
 import { PRESS_DOWNLOADS } from '../data/press-downloads';
+import { dict } from '../i18n/t';
+import type { ActiveLocale } from '../i18n/locales';
+
+export interface Props { lang: ActiveLocale; }
+const { lang } = Astro.props;
+const t = dict(lang);
+
+const LABEL_MAP: Record<string, { label: string; sublabel: string }> = {
+  logo:        { label: t.press.downloads.logoLabel,        sublabel: t.press.downloads.logoSublabel },
+  screenshots: { label: t.press.downloads.screenshotsLabel, sublabel: t.press.downloads.screenshotsSublabel },
+};
 ---
 <ul class="grid gap-4 sm:grid-cols-2">
-  {PRESS_DOWNLOADS.map((d) => (
-    <li>
-      <a
-        href={d.href}
-        download={d.filename}
-        class="block rounded-card border border-brand-stroke/60 bg-brand-surface p-6 transition-all hover:-translate-y-0.5 hover:shadow-lifted"
-      >
-        <p class="font-display text-h3 text-brand-ink">{d.label}</p>
-        <p class="mt-1 text-sm text-brand-mute">{d.sublabel}</p>
-        <p class="mt-3 text-xs uppercase tracking-wider text-brand-pink">Download →</p>
-      </a>
-    </li>
-  ))}
+  {PRESS_DOWNLOADS.map((d) => {
+    const labels = LABEL_MAP[d.id] ?? { label: d.label, sublabel: d.sublabel };
+    return (
+      <li>
+        <a
+          href={d.href}
+          download={d.filename}
+          class="block rounded-card border border-brand-stroke/60 bg-brand-surface p-6 transition-all hover:-translate-y-0.5 hover:shadow-lifted"
+        >
+          <p class="font-display text-h3 text-brand-ink">{labels.label}</p>
+          <p class="mt-1 text-sm text-brand-mute">{labels.sublabel}</p>
+          <p class="mt-3 text-xs uppercase tracking-wider text-brand-pink">{t.press.downloads.downloadCta}</p>
+        </a>
+      </li>
+    );
+  })}
 </ul>
