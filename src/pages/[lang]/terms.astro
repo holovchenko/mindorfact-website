@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ACTIVE_LOCALES, type ActiveLocale } from '../../i18n/locales';
+import { dict } from '../../i18n/t';
+import { getEntry } from 'astro:content';
+
+export function getStaticPaths() {
+  return ACTIVE_LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: ActiveLocale };
+const t = dict(lang);
+const entry = await getEntry('legal', `${lang}/terms`);
+if (!entry) throw new Error(`Missing terms entry for ${lang}`);
+const { Content } = await entry.render();
+---
+
+<BaseLayout lang={lang} path="/terms" title={`${t.legal.termsTitle} — ${t.meta.siteName}`}>
+  <article class="prose-page max-w-prose">
+    <p class="text-xs uppercase tracking-wider text-brand-mute">{t.legal.lastUpdatedPrefix} {entry.data.lastUpdated}</p>
+    <Content />
+  </article>
+</BaseLayout>

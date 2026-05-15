@@ -48,4 +48,15 @@
   .container-page {
     @apply mx-auto w-full max-w-page px-5 sm:px-8;
   }
+
+  .prose-page :is(h1, h2, h3) {
+    @apply font-display text-brand-ink;
+  }
+  .prose-page h2 { @apply mt-10 text-h2; }
+  .prose-page h3 { @apply mt-6 text-h3; }
+  .prose-page p,
+  .prose-page li { @apply mt-3 text-body text-brand-mute; }
+  .prose-page a { @apply text-brand-indigo; }
+  .prose-page ul { @apply mt-3 list-disc pl-6; }
+  .prose-page strong { @apply text-brand-ink; }
 }
