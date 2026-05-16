@@ -1,0 +1,91 @@
+---
+export interface Props {
+  srcs: string[];
+  alt: string;
+  width?: number;
+  class?: string;
+  priority?: boolean;
+  intervalMs?: number;
+}
+const {
+  srcs,
+  alt,
+  width = 19,
+  class: extra = '',
+  priority = false,
+  intervalMs = 4000,
+} = Astro.props;
+
+const slides = srcs.map((src) => ({
+  src,
+  webp: src.replace(/\.png$/i, '.webp'),
+  hasWebp: /\.png$/i.test(src),
+}));
+---
+<div
+  class={`phone-frame relative isolate ${extra}`}
+  style={`width:${width}rem`}
+  data-phone-carousel
+  data-interval={intervalMs}
+>
+  <div class="aspect-[9/19.5] rounded-[2.6rem] bg-brand-ink p-[0.45rem] shadow-lifted">
+    <div class="relative h-full w-full overflow-hidden rounded-[2.2rem] bg-brand-cream">
+      <div class="absolute top-2 left-1/2 -translate-x-1/2 h-5 w-20 rounded-pill bg-brand-ink z-10"></div>
+      {slides.map((slide, i) => (
+        <picture
+          class:list={['slide absolute inset-0 h-full w-full transition-opacity duration-700 ease-in-out', i === 0 ? 'opacity-100' : 'opacity-0']}
+          data-slide-index={i}
+        >
+          {slide.hasWebp && <source type="image/webp" srcset={slide.webp} />}
+          <img
+            src={slide.src}
+            alt={alt}
+            loading={priority && i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={priority && i === 0 ? 'high' : 'auto'}
+            decoding="async"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </picture>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  const start = () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll<HTMLElement>('[data-phone-carousel]').forEach((root) => {
+      const slides = root.querySelectorAll<HTMLElement>('.slide');
+      if (slides.length <= 1 || reduced) return;
+      const interval = Number(root.dataset.interval) || 4000;
+      let i = 0;
+      let timer: number | null = null;
+      const tick = () => {
+        slides[i].classList.remove('opacity-100');
+        slides[i].classList.add('opacity-0');
+        i = (i + 1) % slides.length;
+        slides[i].classList.remove('opacity-0');
+        slides[i].classList.add('opacity-100');
+      };
+      const play = () => {
+        if (timer === null) timer = window.setInterval(tick, interval);
+      };
+      const pause = () => {
+        if (timer !== null) {
+          window.clearInterval(timer);
+          timer = null;
+        }
+      };
+      play();
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) pause();
+        else play();
+      });
+    });
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start, { once: true });
+  } else {
+    start();
+  }
+</script>

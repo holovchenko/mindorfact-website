@@ -1,6 +1,6 @@
 ---
 import AppStoreBadge from './AppStoreBadge.astro';
-import PhoneFrame from './PhoneFrame.astro';
+import PhoneFrameCarousel from './PhoneFrameCarousel.astro';
 import SampleCard from './SampleCard.astro';
 import { dict } from '../i18n/t';
 import type { ActiveLocale } from '../i18n/locales';
@@ -10,13 +10,30 @@ export interface Props { lang: ActiveLocale; }
 const { lang } = Astro.props;
 const t = dict(lang);
 
-const HERO_SCREENSHOT: Record<string, string> = {
-  uk: '/screenshots/solo-quiz-uk.png',
-  en: '/screenshots/solo-quiz-en.png',
-  de: '/screenshots/solo-quiz-de.png',
-  fr: '/screenshots/solo-quiz-fr.png',
+const HERO_SCREENSHOTS: Record<string, string[]> = {
+  uk: [
+    '/screenshots/solo-quiz-uk-1.png',
+    '/screenshots/solo-quiz-uk-2.png',
+    '/screenshots/solo-quiz-uk-3.png',
+    '/screenshots/solo-quiz-uk-4.png',
+  ],
+  en: [
+    '/screenshots/solo-quiz-en-1.png',
+    '/screenshots/solo-quiz-en-2.png',
+    '/screenshots/solo-quiz-en-3.png',
+  ],
+  de: [
+    '/screenshots/solo-quiz-de-1.png',
+    '/screenshots/solo-quiz-de-2.png',
+    '/screenshots/solo-quiz-de-3.png',
+  ],
+  fr: [
+    '/screenshots/solo-quiz-fr-1.png',
+    '/screenshots/solo-quiz-fr-2.png',
+    '/screenshots/solo-quiz-fr-3.png',
+  ],
 };
-const heroSrc = HERO_SCREENSHOT[lang] ?? HERO_SCREENSHOT.en;
+const heroSrcs = HERO_SCREENSHOTS[lang] ?? HERO_SCREENSHOTS.en;
 ---
 
 <section class="grid grid-cols-1 gap-12 py-6 sm:py-10 lg:grid-cols-12 lg:gap-8">
@@ -37,7 +54,7 @@ const heroSrc = HERO_SCREENSHOT[lang] ?? HERO_SCREENSHOT.en;
   </div>
 
   <div class="lg:col-span-6 relative grid place-items-center min-h-[28rem]">
-    <PhoneFrame src={heroSrc} alt="Mindorfact" priority />
+    <PhoneFrameCarousel srcs={heroSrcs} alt="Mindorfact" priority />
     <div class="absolute -top-2 -left-2 sm:left-0 sm:-translate-x-1/2 hidden sm:block">
       <SampleCard card={HERO_FLOAT_CARDS[0]} lang={lang} tilt={-6} width={14} class="opacity-95" instanceKey="hero-0" />
     </div>
